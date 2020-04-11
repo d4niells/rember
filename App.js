@@ -23,7 +23,9 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
+AntDesign.loadFont();
 const App: () => React$Node = () => {
   return (
     <>
