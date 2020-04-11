@@ -17,3 +17,23 @@ export const Title = styled.Text`
   margin-bottom: 18px;
   text-align: center;
 `;
+
+export const Progress = styled.View`
+  align-items: center;
+`;
+
+export const Count = styled.Text`
+  font-size: 40px;
+  color: ${colors.white};
+  font-weight: 200;
+`;
+
+export const SubTitle = styled.Text`
+  font-size: 12px;
+  color: ${colors.white};
+  font-weight: 700;
+`;
+
+export const Footer = styled.View`
+  align-items: center;
+`;

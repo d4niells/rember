@@ -1,7 +1,7 @@
 export default tempData = [
   {
     id: 'isffd322',
-    name: 'Work from home',
+    name: 'Plan a Trip',
     color: '#24A6D9',
     todos: [
       {
@@ -10,15 +10,15 @@ export default tempData = [
       },
       {
         title: 'Managers Notification from Mobile',
-        completed: false,
+        completed: true,
       },
       {
         title: 'Dashboard',
-        completed: false,
+        completed: true,
       },
       {
         title: 'Solicitations',
-        completed: false,
+        completed: true,
       },
       {
         title: 'Add Allowances',
@@ -41,7 +41,7 @@ export default tempData = [
       },
       {
         title: 'Dashboard',
-        completed: false,
+        completed: true,
       },
       {
         title: 'Solicitations',
@@ -64,7 +64,7 @@ export default tempData = [
       },
       {
         title: 'Managers Notification from Mobile',
-        completed: false,
+        completed: true,
       },
       {
         title: 'Dashboard',
@@ -76,7 +76,7 @@ export default tempData = [
       },
       {
         title: 'Add Allowances',
-        completed: false,
+        completed: true,
       },
     ],
   },
