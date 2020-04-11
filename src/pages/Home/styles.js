@@ -40,3 +40,8 @@ export const AddList = styled.TouchableOpacity`
   padding: 10px;
   border-radius: 5px;
 `;
+
+export const ContainerFlatlist = styled.View`
+  height: 275px;
+  padding-left: 30px;
+`;
