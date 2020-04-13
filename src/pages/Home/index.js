@@ -1,6 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {FlatList} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+// Components
+import TodoList from '~/components/TodoList';
+import AddListModal from '~/components/AddListModal';
+import Modal from '~/components/Modal';
+// Services
+import tempData from '~/services/tempData';
+// Styles
 import {
   Container,
   Header,
@@ -11,13 +18,21 @@ import {
   AddList,
   ContainerFlatlist,
 } from './styles';
-import TodoList from '~/components/TodoList';
-import tempData from '~/services/tempData';
 import {colors} from '~/styles/index';
 
 export default function Home() {
+  const [visible, setVisible] = useState(false);
+
+  const toggleVisible = () => {
+    setVisible(!visible);
+  };
+
   return (
     <Container>
+      <Modal visible={visible} close={() => toggleVisible()}>
+        <AddListModal closeModal={() => toggleVisible} />
+      </Modal>
+
       <Header>
         <Devider />
         <Title>
@@ -25,11 +40,14 @@ export default function Home() {
         </Title>
         <Devider />
       </Header>
+
       <ContainerButtom>
-        <AddList>
+        <AddList onPress={() => toggleVisible()}>
           <AntDesign name="plus" size={20} color={colors.blue} />
         </AddList>
+        <Spam>Add list</Spam>
       </ContainerButtom>
+
       <ContainerFlatlist>
         <FlatList
           data={tempData}

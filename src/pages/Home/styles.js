@@ -32,6 +32,8 @@ export const Spam = styled.Text`
 
 export const ContainerButtom = styled.View`
   margin: 30px 0px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const AddList = styled.TouchableOpacity`
