@@ -36,13 +36,26 @@ export const Input = styled.TextInput`
   font-size: 18px;
 `;
 
+export const ContainerSelect = styled.View`
+  margin-top: 12px;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const SelectColor = styled.TouchableOpacity`
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background-color: ${(props) => props.backgorund};
+`;
+
 export const Submit = styled.TouchableOpacity`
   margin-top: 24px;
   height: 50px;
   border-radius: 6px;
   align-items: center;
   justify-content: center;
-  background-color: ${colors.blue};
+  background-color: ${(props) => props.backgorund};
 `;
 
 export const Label = styled.Text`
