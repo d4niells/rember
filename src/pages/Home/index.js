@@ -27,6 +27,10 @@ export default function Home() {
     setVisible(!visible);
   };
 
+  const renderList = (list) => {
+    return <TodoList list={list} />;
+  };
+
   return (
     <Container>
       <Modal visible={visible} close={() => toggleVisible()}>
@@ -51,10 +55,10 @@ export default function Home() {
       <ContainerFlatlist>
         <FlatList
           data={tempData}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.name}
           horizontal={true}
           showsHorizontalScrollIndicator={true}
-          renderItem={({item}) => <TodoList list={item} />}
+          renderItem={({item}) => renderList(item)}
         />
       </ContainerFlatlist>
     </Container>

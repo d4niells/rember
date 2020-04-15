@@ -33,6 +33,10 @@ export default function AddListModal({closeModal}) {
     });
   };
 
+  const createTodo = () => {
+    tempData.unshift({id: 'ew21', name: name, color: color, todos: []});
+  };
+
   return (
     <KeyboardAvoiding behavior="padding">
       <ButtomDismiss onPress={closeModal()}>
