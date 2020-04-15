@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {FlatList} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import {colors} from '~/styles/index';
 import {
   Container,
@@ -8,7 +10,13 @@ import {
   Header,
   Title,
   Subtitle,
-  Section,
+  ContainerTasks,
+  ConatinerTodo,
+  Checkout,
+  TodoTitle,
+  ContainerInput,
+  Input,
+  Submit,
 } from './styles';
 
 export default function TodoModal({list, closeModal}) {
@@ -20,7 +28,19 @@ export default function TodoModal({list, closeModal}) {
   const completed = todos.filter((todo) => todo.completed).length;
 
   const renderTodos = (item) => {
-    return <Title>{item.title}</Title>;
+    const isCompleted = item.completed;
+    return (
+      <ConatinerTodo>
+        <Checkout>
+          <Ionicons
+            name={isCompleted ? 'ios-square' : 'ios-square-outline'}
+            color={colors.gray}
+            size={24}
+          />
+        </Checkout>
+        <TodoTitle completed={isCompleted}>{item.title}</TodoTitle>
+      </ConatinerTodo>
+    );
   };
 
   return (
@@ -36,13 +56,25 @@ export default function TodoModal({list, closeModal}) {
         </Subtitle>
       </Header>
 
-      <Section>
+      <ContainerTasks>
         <FlatList
           data={todos}
           keyExtractor={(item) => item.title}
           renderItem={({item}) => renderTodos(item)}
+          contentContainerStyle={{paddingHorizontal: 32, paddingVertical: 32}}
+          showsVerticalScrollIndicator={false}
         />
-      </Section>
+      </ContainerTasks>
+      <ContainerInput>
+        <Input
+          backgorund={color}
+          placeholder={'Create a task?'}
+          onChange={(text) => {}}
+        />
+        <Submit backgorund={color} onPress={() => {}}>
+          <AntDesign name="plus" color={colors.white} size={16} />
+        </Submit>
+      </ContainerInput>
     </Container>
   );
 }
