@@ -1,6 +1,5 @@
 export default tempData = [
   {
-    id: 'isffd322',
     name: 'Plan a Trip',
     color: '#24A6D9',
     todos: [
@@ -27,7 +26,6 @@ export default tempData = [
     ],
   },
   {
-    id: 'isffd325',
     name: 'Home',
     color: '#8022D9',
     todos: [
@@ -54,7 +52,6 @@ export default tempData = [
     ],
   },
   {
-    id: 'isffd326',
     name: 'Work',
     color: '#24A6D9',
     todos: [
@@ -81,7 +78,6 @@ export default tempData = [
     ],
   },
   {
-    id: 'isffd328',
     name: 'Freelancers',
     color: '#8022D9',
     todos: [
@@ -108,7 +104,6 @@ export default tempData = [
     ],
   },
   {
-    id: 'Addsa766',
     name: 'Studing',
     color: '#24A6D9',
     todos: [

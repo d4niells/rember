@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import {colors} from '~/styles/index';
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity.attrs({activeOpacity: 0.9})`
   width: 200px;
   background-color: ${({background}) => background};
   padding: 30px 16px;
