@@ -8,20 +8,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:202155320683:android:9b035725ea6375faf1d82e",
+        "mobilesdk_app_id": "1:202155320683:android:0f8482331e0c0cc3f1d82e",
         "android_client_info": {
           "package_name": "com.rember"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "202155320683-vd9jj850pmf7okd3u0apm3ggii6emeg7.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.rember",
-            "certificate_hash": "14c916482dba797ed663bc1d7f28789414348f34"
-          }
-        },
         {
           "client_id": "202155320683-c0hjdibmqvli2cvb45iaqr7u8bt16ht4.apps.googleusercontent.com",
           "client_type": 3
@@ -38,6 +30,13 @@
             {
               "client_id": "202155320683-c0hjdibmqvli2cvb45iaqr7u8bt16ht4.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "202155320683-g326prs4o5rt89m0muhbk7cbu0qoi6ur.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.rember"
+              }
             }
           ]
         }

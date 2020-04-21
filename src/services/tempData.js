@@ -1,4 +1,4 @@
-export default tempData = [
+export default [
   {
     name: 'Plan a Trip',
     color: '#24A6D9',
