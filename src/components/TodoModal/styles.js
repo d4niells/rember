@@ -10,6 +10,7 @@ export const Container = styled.SafeAreaView`
 export const ButtomDismiss = styled.TouchableOpacity`
   position: absolute;
   top: 64px;
+  z-index: 10;
   right: 32px;
 `;
 
