@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>202155320683-lh7velgmsbkkhok04ve90qfti0vnreq0.apps.googleusercontent.com</string>
+	<string>202155320683-g326prs4o5rt89m0muhbk7cbu0qoi6ur.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.202155320683-lh7velgmsbkkhok04ve90qfti0vnreq0</string>
+	<string>com.googleusercontent.apps.202155320683-g326prs4o5rt89m0muhbk7cbu0qoi6ur</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>202155320683-vd9jj850pmf7okd3u0apm3ggii6emeg7.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>org.reactjs.native.example.rember</string>
+	<string>org.reactjs.native.rember</string>
 	<key>PROJECT_ID</key>
 	<string>rember-a92cf</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:202155320683:ios:1e7d094ddc1545f3f1d82e</string>
+	<string>1:202155320683:ios:810519484a4b1e08f1d82e</string>
 	<key>DATABASE_URL</key>
 	<string>https://rember-a92cf.firebaseio.com</string>
 </dict>
