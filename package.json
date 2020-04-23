@@ -13,6 +13,7 @@
     "@react-native-firebase/app": "^6.4.0",
     "@react-native-firebase/auth": "^6.4.0",
     "@react-native-firebase/firestore": "^6.4.0",
+    "date-fns": "^2.12.0",
     "prop-types": "^15.7.2",
     "react": "16.11.0",
     "react-native": "0.62.1",

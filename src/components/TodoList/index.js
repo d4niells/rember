@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import TodoModal from '~/components/TodoModal';
 import Modal from '~/components/Modal';
-import {Container, Title, Progress, Count, SubTitle, Footer} from './styles';
+import { Container, Title, Progress, Count, SubTitle, Footer } from './styles';
 
-export default function TodoList({list}) {
+export default function TodoList({ list }) {
   const [showListVisible, setShowListVisible] = useState(false);
 
   const completedCount = list.todos.filter((todo) => todo.completed).length;
