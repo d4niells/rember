@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {FlatList} from 'react-native';
+import React, { useState } from 'react';
+import { FlatList } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 // Components
 import TodoList from '~/components/TodoList';
@@ -18,7 +18,7 @@ import {
   AddList,
   ContainerFlatlist,
 } from './styles';
-import {colors} from '~/styles/index';
+import { colors } from '~/styles/index';
 
 export default function Home() {
   const [visible, setVisible] = useState(false);
@@ -58,7 +58,7 @@ export default function Home() {
           keyExtractor={(item) => item.name}
           horizontal={true}
           showsHorizontalScrollIndicator={true}
-          renderItem={({item}) => renderList(item)}
+          renderItem={({ item }) => renderList(item)}
         />
       </ContainerFlatlist>
     </Container>

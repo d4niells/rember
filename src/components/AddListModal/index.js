@@ -1,6 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+// services
 import tempData from '~/services/tempData';
+import { createNote } from '~/services/notes';
 import {
   KeyboardAvoiding,
   ButtomDismiss,
@@ -12,9 +14,9 @@ import {
   Submit,
   Label,
 } from './styles';
-import {colors} from '~/styles/index';
+import { colors } from '~/styles/index';
 
-export default function AddListModal({closeModal}) {
+export default function AddListModal({ closeModal }) {
   const [name, setName] = useState('');
   const [color, setColor] = useState(colors.blue);
   const backgorundColors = [
@@ -33,8 +35,9 @@ export default function AddListModal({closeModal}) {
     });
   };
 
-  const createTodo = () => {
-    tempData.unshift({id: 'ew21', name: name, color: color, todos: []});
+  const createTodo = async () => {
+    await createNote({ name, color });
+    closeModal();
   };
 
   return (
@@ -45,7 +48,10 @@ export default function AddListModal({closeModal}) {
 
       <Content>
         <Title>Create Todo List</Title>
-        <Input placeholder={'List name?'} onChange={(text) => setName(text)} />
+        <Input
+          placeholder={'List name?'}
+          onChangeText={(text) => setName(text)}
+        />
         <ContainerSelect>{renderColors()}</ContainerSelect>
 
         <Submit backgorund={color} onPress={() => createTodo()}>
