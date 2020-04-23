@@ -1,18 +1,22 @@
-import db from '~/services/firebase';
+import db, { firebase } from '~/services/firebase';
 import { Alert } from 'react-native';
 
-export async function getNotes() {
-  const notes = await db.collection('notes').get();
-}
+export function findNotesByCategory() {}
 
-export async function createNote(data) {
+export async function createNote(title) {
   try {
-    await db.collection('notes').sadd({
-      name: data.name,
-      color: data.color,
-      todos: [],
+    await db.collection('notes').add({
+      title: title,
+      completed: false,
+      actived: true,
+      category: null,
+      user: null,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
+
+    Alert.alert('Sucesso', 'Sua tarefa foi adicionada.');
   } catch (error) {
-    Alert.alert('Atenção', 'Não foi possível salvar.');
+    Alert.alert('Atenção', 'Não foi possível criar sua tarefa.');
   }
 }
