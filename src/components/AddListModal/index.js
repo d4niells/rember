@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 // services
 import tempData from '~/services/tempData';
-import { createNote } from '~/services/notes';
+import { createCategory } from '~/services/categories';
 import {
   KeyboardAvoiding,
   ButtomDismiss,
@@ -36,7 +36,7 @@ export default function AddListModal({ closeModal }) {
   };
 
   const createTodo = async () => {
-    await createNote({ name, color });
+    await createCategory({ name, color });
     closeModal();
   };
 

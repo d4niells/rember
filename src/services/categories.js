@@ -1,11 +1,7 @@
 import db, { firebase } from '~/services/firebase';
 import { Alert } from 'react-native';
 
-export async function getNotes() {
-  const notes = await db.collection('notes').get();
-}
-
-export async function createNote(data) {
+export async function createCategory(data) {
   try {
     await db.collection('categories').add({
       name: data.name,
@@ -20,4 +16,21 @@ export async function createNote(data) {
   } catch (error) {
     Alert.alert('Atenção', 'Não foi possível criar sua categoria.');
   }
+}
+
+export async function listCategories() {
+  const categoriesDocs = await db.collection('categories').get();
+
+  const categories = await Promise.all(
+    categoriesDocs.docs.map(async (category) => {
+      const categoryData = await category.data();
+      return {
+        ...categoryData,
+        id: category.id,
+        path: category.ref.path,
+      };
+    })
+  );
+
+  return categories;
 }

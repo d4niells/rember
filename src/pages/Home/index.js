@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FlatList } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 // Components
@@ -7,6 +7,7 @@ import AddListModal from '~/components/AddListModal';
 import Modal from '~/components/Modal';
 // Services
 import tempData from '~/services/tempData';
+import { listCategories } from '~/services/categories';
 // Styles
 import {
   Container,
@@ -22,14 +23,26 @@ import { colors } from '~/styles/index';
 
 export default function Home() {
   const [visible, setVisible] = useState(false);
+  const [categories, setCategories] = useState([]);
 
   const toggleVisible = () => {
     setVisible(!visible);
   };
 
+  useEffect(() => {
+    const categories = async () => {
+      const data = await listCategories();
+      setCategories(data);
+    };
+
+    categories();
+  }, []);
+
   const renderList = (list) => {
     return <TodoList list={list} />;
   };
+
+  console.tron.log(categories);
 
   return (
     <Container>
@@ -54,8 +67,8 @@ export default function Home() {
 
       <ContainerFlatlist>
         <FlatList
-          data={tempData}
-          keyExtractor={(item) => item.name}
+          data={categories}
+          keyExtractor={(item) => item.id}
           horizontal={true}
           showsHorizontalScrollIndicator={true}
           renderItem={({ item }) => renderList(item)}

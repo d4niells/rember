@@ -6,7 +6,7 @@ export function findNotesByCategory() {}
 export async function createNote(title) {
   try {
     await db.collection('notes').add({
-      title: title,
+      name: title,
       completed: false,
       actived: true,
       category: null,

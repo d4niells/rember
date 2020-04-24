@@ -22,13 +22,10 @@ import {
 } from './styles';
 
 export default function TodoModal({ list, closeModal }) {
-  const [name, setName] = useState(list.name);
   const [title, setTitle] = useState(null);
-  const [color, setColor] = useState(list.color);
-  const [todos, setTodos] = useState(list.todos);
 
-  const taskCount = todos.length;
-  const completed = todos.filter((todo) => todo.completed).length;
+  const taskCount = list.todos.length;
+  const completed = list.todos.filter((todo) => todo.completed).length;
 
   const handleAdd = async () => {
     await createNote(title);
@@ -56,8 +53,8 @@ export default function TodoModal({ list, closeModal }) {
         <AntDesign name="close" color={colors.black} size={24} />
       </ButtomDismiss>
 
-      <Header color={color}>
-        <Title>{name}</Title>
+      <Header color={list.color}>
+        <Title>{list.name}</Title>
         <Subtitle>
           {completed} of {taskCount} tasks
         </Subtitle>
@@ -65,7 +62,7 @@ export default function TodoModal({ list, closeModal }) {
 
       <ContainerTasks>
         <FlatList
-          data={todos}
+          data={list.todos}
           keyExtractor={(item) => item.title}
           renderItem={({ item }) => renderTodos(item)}
           contentContainerStyle={{ paddingHorizontal: 32, paddingVertical: 32 }}
@@ -74,11 +71,11 @@ export default function TodoModal({ list, closeModal }) {
       </ContainerTasks>
       <ContainerInput>
         <Input
-          backgorund={color}
+          backgorund={list.color}
           placeholder={'Create a task?'}
           onChangeText={(text) => setTitle(text)}
         />
-        <Submit backgorund={color} onPress={() => handleAdd()}>
+        <Submit backgorund={list.color} onPress={() => handleAdd()}>
           <AntDesign name="plus" color={colors.white} size={16} />
         </Submit>
       </ContainerInput>
