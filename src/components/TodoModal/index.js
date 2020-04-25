@@ -39,7 +39,7 @@ export default function TodoModal({ categoryData, closeModal }) {
   }, [categoryData]);
 
   useEffect(() => {
-    const tasksCompleted = notes.filter((note) => note.completed);
+    const tasksCompleted = notes.filter((note) => note.completed).length;
     setCountCompleted(tasksCompleted);
   }, [notes]);
 
