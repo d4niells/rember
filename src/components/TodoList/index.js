@@ -17,7 +17,7 @@ export default function TodoList({ list }) {
   return (
     <>
       <Modal visible={showListVisible} close={() => toggleListModal()}>
-        <TodoModal list={list} closeModal={() => toggleListModal()} />
+        <TodoModal categoryData={list} closeModal={() => toggleListModal()} />
       </Modal>
       <Container background={list.color} onPress={() => toggleListModal()}>
         <Title>{list.name}</Title>
