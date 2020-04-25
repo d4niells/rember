@@ -28,7 +28,7 @@ export default function TodoModal({ categoryData, closeModal }) {
   const [title, setTitle] = useState(null);
   const [notes, setNotes] = useState([]);
   const [countCompleted, setCountCompleted] = useState(0);
-  const taskCount = 0;
+  const taskCount = categoryData.todos.length;
 
   useEffect(() => {
     const categoryRef = getDocument(categoryData.path);
@@ -39,8 +39,8 @@ export default function TodoModal({ categoryData, closeModal }) {
   }, [categoryData]);
 
   useEffect(() => {
-    const tasksCompleted = notes.filter((note) => note.completed);
-    setCountCompleted(tasksCompleted);
+    const count = notes.filter((note) => note.completed).length;
+    setCountCompleted(count);
   }, [notes]);
 
   const handleAdd = async () => {
