@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {colors} from '~/styles/index';
+import { colors } from '~/styles/index';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -15,14 +15,14 @@ export const ButtomDismiss = styled.TouchableOpacity`
 `;
 
 export const Section = styled.View`
-  flex: 1;
-  align-self: stretch;
+  width: 100%;
+  margin-top: 15px;
 `;
 
 export const Header = styled(Section)`
   justify-content: flex-end;
-  margin-left: 64px;
   border-bottom-width: 3px;
+  margin-left: 64px;
   border-bottom-color: ${(props) => props.color};
 `;
 
@@ -41,6 +41,7 @@ export const Subtitle = styled.Text`
 
 export const ContainerTasks = styled.View`
   flex: 3;
+  width: 100%;
 `;
 
 export const ConatinerTodo = styled.View`
