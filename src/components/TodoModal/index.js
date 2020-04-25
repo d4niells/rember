@@ -3,7 +3,8 @@ import { FlatList } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { createNote } from '~/services/notes';
+import { create } from '~/services/notes';
+import { getDocument } from '~/services/firestoreHelpers';
 
 import { colors } from '~/styles/index';
 import {
@@ -28,7 +29,8 @@ export default function TodoModal({ list, closeModal }) {
   const completed = list.todos.filter((todo) => todo.completed).length;
 
   const handleAdd = async () => {
-    await createNote(title);
+    const categoryRef = getDocument(list.path);
+    await create({ title, categoryRef });
   };
 
   const renderTodos = (item) => {

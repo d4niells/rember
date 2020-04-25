@@ -6,7 +6,6 @@ import TodoList from '~/components/TodoList';
 import AddListModal from '~/components/AddListModal';
 import Modal from '~/components/Modal';
 // Services
-import tempData from '~/services/tempData';
 import { listCategories } from '~/services/categories';
 // Styles
 import {
