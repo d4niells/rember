@@ -3,7 +3,7 @@ import { FlatList } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { create } from '~/services/notes';
+import { create, update } from '~/services/notes';
 import db from '~/services/firebase';
 import { documentSnapShot } from '~/services/firestoreHelpers';
 import { getDocument } from '~/services/firestoreHelpers';
@@ -46,12 +46,21 @@ export default function TodoModal({ categoryData, closeModal }) {
   const handleAdd = async () => {
     const categoryRef = getDocument(categoryData.path);
     await create({ title, categoryRef });
+
+    setTitle(null);
+  };
+
+  const handleEdit = async (note) => {
+    const noteRef = getDocument(note.path);
+
+    const editedNote = { ...note, completed: !note.completed };
+    await update(editedNote, noteRef);
   };
 
   const renderTodos = (item) => {
     return (
       <ConatinerTodo>
-        <Checkout>
+        <Checkout onPress={() => handleEdit(item)}>
           <Ionicons
             name={item.completed ? 'ios-square' : 'ios-square-outline'}
             color={colors.gray}
@@ -90,6 +99,7 @@ export default function TodoModal({ categoryData, closeModal }) {
           backgorund={categoryData.color}
           placeholder={'Create a task?'}
           onChangeText={(text) => setTitle(text)}
+          value={title}
         />
         <Submit backgorund={categoryData.color} onPress={() => handleAdd()}>
           <AntDesign name="plus" color={colors.white} size={16} />
