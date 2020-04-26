@@ -29,19 +29,17 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const categories = async () => {
+    const getCategories = async () => {
       const data = await listCategories();
       setCategories(data);
     };
 
-    categories();
+    getCategories();
   }, []);
 
-  const renderList = (list) => {
-    return <TodoList list={list} />;
+  const renderList = (item) => {
+    return <TodoList category={item} />;
   };
-
-  console.tron.log(categories);
 
   return (
     <Container>
