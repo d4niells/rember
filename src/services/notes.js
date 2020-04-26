@@ -26,3 +26,14 @@ export async function create({ title, categoryRef }) {
     Alert.alert('Atenção', 'Não foi possível criar sua tarefa.');
   }
 }
+
+export async function update(note, noteRef) {
+  try {
+    await noteRef.update({
+      ...note,
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+  } catch (error) {
+    Alert.alert('Atenção', 'Não foi possível alterar sua tarefa.');
+  }
+}
