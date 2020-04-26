@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+// Components
 import TodoModal from '~/components/TodoModal';
 import Modal from '~/components/Modal';
-import { Container, Title, Progress, Count, SubTitle, Footer } from './styles';
+// Styles
+import { Container, Title, Progress, Count, SubTitle } from './styles';
 
-export default function TodoList({ list }) {
+export default function TodoList({ category }) {
   const [showListVisible, setShowListVisible] = useState(false);
+  const countCompleted = category.todos.filter((todo) => todo.completed).length;
+  const remainingCount = category.todos.length - countCompleted;
 
-  const completedCount = list.todos.filter((todo) => todo.completed).length;
-  const remainingCount = list.todos.length - completedCount;
+  useEffect(() => {}, [category]);
 
   const toggleListModal = () => {
     setShowListVisible(!showListVisible);
@@ -17,16 +19,19 @@ export default function TodoList({ list }) {
   return (
     <>
       <Modal visible={showListVisible} close={() => toggleListModal()}>
-        <TodoModal categoryData={list} closeModal={() => toggleListModal()} />
+        <TodoModal
+          categoryData={category}
+          closeModal={() => toggleListModal()}
+        />
       </Modal>
-      <Container background={list.color} onPress={() => toggleListModal()}>
-        <Title>{list.name}</Title>
+      <Container background={category.color} onPress={() => toggleListModal()}>
+        <Title>{category.name}</Title>
         <Progress>
           <Count>{remainingCount}</Count>
           <SubTitle>Remaining</SubTitle>
         </Progress>
         <Progress>
-          <Count>{completedCount}</Count>
+          <Count>{countCompleted}</Count>
           <SubTitle>Completed</SubTitle>
         </Progress>
       </Container>
