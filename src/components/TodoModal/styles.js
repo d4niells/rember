@@ -59,7 +59,7 @@ export const TodoTitle = styled.Text`
   font-weight: 700;
   text-decoration-line: ${(props) =>
     props.completed ? 'line-through' : ' none'}
-  font-size: 16px;
+  font-size: 16px; 
 `;
 
 export const ContainerInput = styled.KeyboardAvoidingView`

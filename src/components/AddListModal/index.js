@@ -31,7 +31,7 @@ export default function AddListModal({ closeModal }) {
 
   const renderColors = () => {
     return backgorundColors.map((color) => {
-      return <SelectColor onPress={() => setColor(color)} backgorund={color} />;
+      return <SelectColor onPress={() => setColor(color)} background={color} />;
     });
   };
 
@@ -49,12 +49,13 @@ export default function AddListModal({ closeModal }) {
       <Content>
         <Title>Create Todo List</Title>
         <Input
+          background={color}
           placeholder={'List name?'}
           onChangeText={(text) => setName(text)}
         />
         <ContainerSelect>{renderColors()}</ContainerSelect>
 
-        <Submit backgorund={color} onPress={() => createTodo()}>
+        <Submit background={color} onPress={() => createTodo()}>
           <Label>Create</Label>
         </Submit>
       </Content>
