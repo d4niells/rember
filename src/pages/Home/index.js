@@ -7,6 +7,8 @@ import AddListModal from '~/components/AddListModal';
 import Modal from '~/components/Modal';
 // Services
 import { listCategories } from '~/services/categories';
+import { documentSnapShot } from '~/services/firestoreHelpers';
+import db from '~/services/firebase';
 // Styles
 import {
   Container,
@@ -29,12 +31,12 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const getCategories = async () => {
-      const data = await listCategories();
-      setCategories(data);
-    };
+    const query = db.collection('categories');
+    const unsubscribeCategory = documentSnapShot(query, (data) =>
+      setCategories(data)
+    );
 
-    getCategories();
+    return unsubscribeCategory;
   }, []);
 
   const renderList = (item) => {
@@ -44,7 +46,7 @@ export default function Home() {
   return (
     <Container>
       <Modal visible={visible} close={() => toggleVisible()}>
-        <AddListModal closeModal={() => toggleVisible} />
+        <AddListModal closeModal={toggleVisible} />
       </Modal>
 
       <Header>
