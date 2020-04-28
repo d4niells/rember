@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 // services
-import tempData from '~/services/tempData';
 import { createCategory } from '~/services/categories';
 import {
   KeyboardAvoiding,
@@ -42,7 +41,7 @@ export default function AddListModal({ closeModal }) {
 
   return (
     <KeyboardAvoiding behavior="padding">
-      <ButtomDismiss onPress={closeModal()}>
+      <ButtomDismiss onPress={() => closeModal()}>
         <AntDesign name="close" color={colors.black} size={24} />
       </ButtomDismiss>
 
