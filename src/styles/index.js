@@ -4,7 +4,8 @@ const colors = {
   lightGray: '#CACACA',
   blue: '#24A6D9',
   lightBlue: '#A7CBD9',
+  red: '#D85963',
   white: '#FFFFFF',
 };
 
-export {colors};
+export { colors };

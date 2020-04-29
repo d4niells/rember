@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, Animated, TouchableOpacity } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { create, update } from '~/services/notes';
+import { Swipeable } from 'react-native-gesture-handler';
+
 import db from '~/services/firebase';
-import { documentSnapShot } from '~/services/firestoreHelpers';
+import { create, update } from '~/services/notes';
 import { getDocument } from '~/services/firestoreHelpers';
+import { documentSnapShot } from '~/services/firestoreHelpers';
 
 import { colors } from '~/styles/index';
 import {
@@ -22,6 +24,9 @@ import {
   ContainerInput,
   Input,
   Submit,
+  DeleteButton,
+  AnimatedView,
+  AnimatedText,
 } from './styles';
 
 export default function TodoModal({ categoryData, closeModal }) {
@@ -32,7 +37,10 @@ export default function TodoModal({ categoryData, closeModal }) {
 
   useEffect(() => {
     const categoryRef = getDocument(categoryData.path);
-    const query = db.collection('notes').where('category', '==', categoryRef);
+    const query = db
+      .collection('notes')
+      .where('category', '==', categoryRef)
+      .where('actived', '==', true);
     const unsubscribeNotes = documentSnapShot(query, (data) => setNotes(data));
 
     return unsubscribeNotes;
@@ -57,18 +65,48 @@ export default function TodoModal({ categoryData, closeModal }) {
     await update(editedNote, noteRef);
   };
 
+  const handleDelete = async (note) => {
+    const noteRef = getDocument(note.path);
+
+    const deletedNote = { ...note, actived: false };
+    await update(deletedNote, noteRef);
+  };
+
   const renderTodos = (item) => {
     return (
-      <ConatinerTodo>
-        <Checkout onPress={() => handleEdit(item)}>
-          <Ionicons
-            name={item.completed ? 'ios-square' : 'ios-square-outline'}
-            color={colors.gray}
-            size={24}
-          />
-        </Checkout>
-        <TodoTitle completed={item.completed}>{item.name}</TodoTitle>
-      </ConatinerTodo>
+      <Swipeable renderRightActions={(_, dragX) => rightActions(dragX, item)}>
+        <ConatinerTodo>
+          <Checkout onPress={() => handleEdit(item)}>
+            <Ionicons
+              name={item.completed ? 'ios-square' : 'ios-square-outline'}
+              color={colors.gray}
+              size={24}
+            />
+          </Checkout>
+          <TodoTitle completed={item.completed}>{item.name}</TodoTitle>
+        </ConatinerTodo>
+      </Swipeable>
+    );
+  };
+
+  const rightActions = (dragX, item) => {
+    const scale = dragX.interpolate({
+      inputRange: [-100, 0],
+      outputRange: [1, 0.9],
+      extrapolate: 'clamp',
+    });
+
+    const opacity = dragX.interpolate({
+      inputRange: [-100, -20, 0],
+      outputRange: [1, 0.9, 0],
+      extrapolate: 'clamp',
+    });
+    return (
+      <AnimatedView style={{ opacity: opacity }}>
+        <DeleteButton onPress={() => handleDelete(item)}>
+          <AnimatedText style={{ transform: [{ scale }] }}>Delete</AnimatedText>
+        </DeleteButton>
+      </AnimatedView>
     );
   };
 

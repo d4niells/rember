@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { colors } from '~/styles/index';
+import { Animated } from 'react-native';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -87,4 +88,20 @@ export const Submit = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   background-color: ${(props) => props.backgorund};
+`;
+
+export const DeleteButton = styled.TouchableOpacity`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const AnimatedView = styled(Animated.View)`
+  background-color: ${colors.red};
+  width: 80px;
+`;
+
+export const AnimatedText = styled(Animated.Text)`
+  color: ${colors.white};
+  font-weight: 800;
 `;
