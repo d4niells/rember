@@ -77,7 +77,7 @@ export default function TodoModal({ categoryData, closeModal }) {
     return (
       <AnimatedView style={{ opacity: opacity }}>
         <DeleteButton>
-          <AnimatedText>Delete</AnimatedText>
+          <AnimatedText style={{ transform: [{ scale }] }}>Delete</AnimatedText>
         </DeleteButton>
       </AnimatedView>
     );
