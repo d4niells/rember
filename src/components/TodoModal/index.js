@@ -37,7 +37,10 @@ export default function TodoModal({ categoryData, closeModal }) {
 
   useEffect(() => {
     const categoryRef = getDocument(categoryData.path);
-    const query = db.collection('notes').where('category', '==', categoryRef);
+    const query = db
+      .collection('notes')
+      .where('category', '==', categoryRef)
+      .where('actived', '==', true);
     const unsubscribeNotes = documentSnapShot(query, (data) => setNotes(data));
 
     return unsubscribeNotes;
@@ -62,7 +65,31 @@ export default function TodoModal({ categoryData, closeModal }) {
     await update(editedNote, noteRef);
   };
 
-  const rightActions = (dragX, index) => {
+  const handleDelete = async (note) => {
+    const noteRef = getDocument(note.path);
+
+    const deletedNote = { ...note, actived: false };
+    await update(deletedNote, noteRef);
+  };
+
+  const renderTodos = (item) => {
+    return (
+      <Swipeable renderRightActions={(_, dragX) => rightActions(dragX, item)}>
+        <ConatinerTodo>
+          <Checkout onPress={() => handleEdit(item)}>
+            <Ionicons
+              name={item.completed ? 'ios-square' : 'ios-square-outline'}
+              color={colors.gray}
+              size={24}
+            />
+          </Checkout>
+          <TodoTitle completed={item.completed}>{item.name}</TodoTitle>
+        </ConatinerTodo>
+      </Swipeable>
+    );
+  };
+
+  const rightActions = (dragX, item) => {
     const scale = dragX.interpolate({
       inputRange: [-100, 0],
       outputRange: [1, 0.9],
@@ -76,27 +103,10 @@ export default function TodoModal({ categoryData, closeModal }) {
     });
     return (
       <AnimatedView style={{ opacity: opacity }}>
-        <DeleteButton>
+        <DeleteButton onPress={() => handleDelete(item)}>
           <AnimatedText style={{ transform: [{ scale }] }}>Delete</AnimatedText>
         </DeleteButton>
       </AnimatedView>
-    );
-  };
-
-  const renderTodos = (item) => {
-    return (
-      <Swipeable renderRightActions={(_, dragX) => rightActions(dragX)}>
-        <ConatinerTodo>
-          <Checkout onPress={() => handleEdit(item)}>
-            <Ionicons
-              name={item.completed ? 'ios-square' : 'ios-square-outline'}
-              color={colors.gray}
-              size={24}
-            />
-          </Checkout>
-          <TodoTitle completed={item.completed}>{item.name}</TodoTitle>
-        </ConatinerTodo>
-      </Swipeable>
     );
   };
 
