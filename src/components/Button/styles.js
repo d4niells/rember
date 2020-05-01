@@ -12,6 +12,6 @@ export const LargeButton = styled.TouchableOpacity`
 
 export const Label = styled.Text`
   font-weight: bold;
-  font-size: 15;
+  font-size: 15px;
   color: ${colors.white};
 `;

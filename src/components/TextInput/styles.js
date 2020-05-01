@@ -19,7 +19,7 @@ export const Input = styled.TextInput.attrs({
 `;
 
 export const LabelError = styled.Text`
-  font-size: 14;
+  font-size: 14px;
   color: ${colors.error};
   padding: 0px 4px;
   padding-top: 4px;
