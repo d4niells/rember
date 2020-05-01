@@ -9,7 +9,7 @@ const isSignout = false;
 const Stack = createStackNavigator();
 
 const Routes = () => (
-  <Stack.Navigator>
+  <Stack.Navigator headerMode="none">
     <Stack.Screen
       name="SignIn"
       component={SignIn}
