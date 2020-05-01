@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { colors } from '~/styles/index';
+
 export const Container = styled.View`
   width: 100%;
   margin: 12px 0px;

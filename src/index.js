@@ -3,10 +3,10 @@ import '~/config/ReactotronConfig';
 import Routes from '~/routes';
 import { NavigationContainer } from '@react-navigation/native';
 
-const App = () => (
-  <NavigationContainer>
-    <Routes />
-  </NavigationContainer>
-);
-
-export default App;
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Routes />
+    </NavigationContainer>
+  );
+}

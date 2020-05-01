@@ -1,5 +1,4 @@
 import React from 'react';
-import { colors } from '~/styles/index';
 import { Container, Input, LabelError } from './styles';
 
 export default function TextInput({ errorText, ...props }) {
