@@ -1,12 +1,14 @@
 import React from 'react';
-import '~/config/ReactotronConfig';
-import Routes from '~/routes';
-import { NavigationContainer } from '@react-navigation/native';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import App from './App';
 
-export default function App() {
+function Index() {
   return (
-    <NavigationContainer>
-      <Routes />
-    </NavigationContainer>
+    <Provider store={store}>
+      <App />
+    </Provider>
   );
 }
+
+export default Index;
