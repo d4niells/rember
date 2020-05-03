@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { signInResquest } from '~/store/modules/auth/actions';
 import TextInput from '~/components/TextInput';
 import Button from '~/components/Button';
-import { emailValidator, passwordValidator } from '~/utils/validator';
 import {
   Container,
   Header,
@@ -14,22 +15,19 @@ import {
   LabelLink,
   Footer,
 } from './styles';
+import { Alert } from 'react-native';
 
 export default function SignIn({ navigation }) {
-  const [email, setEmail] = useState({ value: '', error: '' });
-  const [password, setPassword] = useState({ value: '', error: '' });
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const submit = () => {
-    const emailError = emailValidator(email.value);
-    const passwordError = passwordValidator(password.value);
-
-    if (emailError || passwordError) {
-      setEmail({ ...email, error: emailError });
-      setPassword({ ...password, error: passwordError });
-      return;
+    if (email.length === 0 || password.length === 0) {
+      Alert.alert('Error', 'Email our password cannot be empty.');
+    } else {
+      dispatch(signInResquest(email, password));
     }
-
-    navigation.navigate('Home');
   };
 
   return (
@@ -44,9 +42,7 @@ export default function SignIn({ navigation }) {
           placeholder="Email"
           returnKeyType="next"
           value={email.value}
-          onChangeText={(text) => setEmail({ value: text, error: '' })}
-          error={!!email.error}
-          errorText={email.error}
+          onChangeText={(text) => setEmail(text)}
           autoCapitalize="none"
           autoCompleteType="email"
           textContentType="emailAddress"
@@ -57,9 +53,7 @@ export default function SignIn({ navigation }) {
           placeholder="Password"
           returnKeyType="done"
           value={password.value}
-          onChangeText={(text) => setPassword({ value: text, error: '' })}
-          error={!!password.error}
-          errorText={password.error}
+          onChangeText={(text) => setPassword(text)}
           secureTextEntry
         />
 
