@@ -17,10 +17,3 @@ export const Input = styled.TextInput.attrs({
   border-color: ${colors.secondary};
   color: ${colors.secondary};
 `;
-
-export const LabelError = styled.Text`
-  font-size: 14px;
-  color: ${colors.error};
-  padding: 0px 4px;
-  padding-top: 4px;
-`;

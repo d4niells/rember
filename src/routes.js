@@ -20,7 +20,6 @@ const Routes = () => {
           name="SignIn"
           component={SignIn}
           options={{
-            title: 'Sign in',
             animationTypeForReplace: signout ? 'pop' : 'push',
           }}
         />
