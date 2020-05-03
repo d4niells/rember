@@ -69,7 +69,7 @@ export default function SignIn({ navigation }) {
       </Body>
       <Footer>
         <Label>Don’t have an account? </Label>
-        <Link onPress={() => {}}>
+        <Link onPress={() => navigation.navigate('SignUp')}>
           <LabelLink>Sign up</LabelLink>
         </Link>
       </Footer>
