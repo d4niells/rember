@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signInResquest } from '~/store/modules/auth/actions';
 import TextInput from '~/components/TextInput';
 import Button from '~/components/Button';
@@ -19,6 +19,7 @@ import { Alert } from 'react-native';
 
 export default function SignIn({ navigation }) {
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.auth.loading);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -47,6 +48,7 @@ export default function SignIn({ navigation }) {
           autoCompleteType="email"
           textContentType="emailAddress"
           keyboardType="email-address"
+          editable={!loading}
         />
 
         <TextInput
@@ -55,6 +57,7 @@ export default function SignIn({ navigation }) {
           value={password.value}
           onChangeText={(text) => setPassword(text)}
           secureTextEntry
+          editable={!loading}
         />
 
         <ForgotPasswordView>
@@ -63,7 +66,12 @@ export default function SignIn({ navigation }) {
           </Link>
         </ForgotPasswordView>
 
-        <Button mode="contained" onPress={submit}>
+        <Button
+          mode="contained"
+          onPress={submit}
+          loading={loading}
+          disabled={loading}
+        >
           Login
         </Button>
       </Body>

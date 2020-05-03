@@ -1,9 +1,21 @@
 import React from 'react';
+import ActivityIndicator from '~/components/ActivityIndicator';
 import { LargeButton, Label } from './styles';
-export default function Button({ mode, style, children, ...props }) {
+import { colors } from '~/styles/index';
+export default function Button({
+  mode,
+  style,
+  children,
+  loading = false,
+  ...props
+}) {
   return (
     <LargeButton mode={mode} {...props}>
-      <Label>{children}</Label>
+      {loading ? (
+        <ActivityIndicator size={'small'} color={colors.white} />
+      ) : (
+        <Label>{children}</Label>
+      )}
     </LargeButton>
   );
 }

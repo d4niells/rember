@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signUpResquest } from '~/store/modules/auth/actions';
 import TextInput from '~/components/TextInput';
 import Button from '~/components/Button';
@@ -19,6 +19,7 @@ import { Alert } from 'react-native';
 
 export default function SignUp({ navigation }) {
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.auth.loading);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -47,6 +48,7 @@ export default function SignUp({ navigation }) {
             onChangeText={(text) => setName(text)}
             autoCapitalize="none"
             autoCompleteType="name"
+            editable={!loading}
           />
           <TextInput
             placeholder="Email"
@@ -57,6 +59,7 @@ export default function SignUp({ navigation }) {
             autoCompleteType="email"
             textContentType="emailAddress"
             keyboardType="email-address"
+            editable={!loading}
           />
 
           <TextInput
@@ -65,9 +68,10 @@ export default function SignUp({ navigation }) {
             value={password}
             onChangeText={(text) => setPassword(text)}
             secureTextEntry
+            editable={!loading}
           />
         </FieldsForm>
-        <Button mode="contained" onPress={submit}>
+        <Button mode="contained" onPress={submit} loading={loading}>
           Sing Up
         </Button>
       </Body>
