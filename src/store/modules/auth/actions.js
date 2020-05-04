@@ -5,10 +5,10 @@ export function signInResquest(email, password) {
   };
 }
 
-export function signUpResquest(email, password) {
+export function signUpResquest(data) {
   return {
     type: '@auth/SIGN_UP_REQUEST',
-    payload: { email, password },
+    payload: data,
   };
 }
 
