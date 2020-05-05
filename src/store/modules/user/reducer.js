@@ -17,7 +17,10 @@ export default function user(state = INITIAL_STATE, action) {
       case '@auth/CREATE_USER': {
         break;
       }
-      case '@auth/SIGN_IN_SUCCESS': {
+      case '@auth/USER_REQUEST': {
+        break;
+      }
+      case '@auth/USER_REQUEST_SUCCESS': {
         draft.uid = action.user.uid;
         draft.path = action.user.path;
         draft.email = action.user.email;

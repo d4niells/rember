@@ -1,7 +1,7 @@
 import { Alert } from 'react-native';
 import { takeLatest, call, put, all, take } from 'redux-saga/effects';
 import { signInSuccess, signUpSuccess, signFailure } from './actions';
-import { createUser } from '../user/actions';
+import { createUser, userResquest } from '../user/actions';
 import { auth } from '~/services/firebase';
 
 export function* signIn({ payload }) {
@@ -15,6 +15,9 @@ export function* signIn({ payload }) {
     );
 
     const { user } = data;
+
+    yield put(userResquest(user.uid));
+    yield take('@auth/USER_REQUEST_SUCCESS');
 
     yield put(signInSuccess(user));
   } catch (error) {
