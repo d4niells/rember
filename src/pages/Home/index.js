@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { FlatList } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 // Components
@@ -6,8 +7,7 @@ import TodoList from '~/components/TodoList';
 import AddListModal from '~/components/AddListModal';
 import Modal from '~/components/Modal';
 // Services
-import { listCategories } from '~/services/categories';
-import { documentSnapShot } from '~/services/firestoreHelpers';
+import { documentSnapShot, getDocument } from '~/services/firestoreHelpers';
 import db from '~/services/firebase';
 // Styles
 import {
@@ -23,6 +23,8 @@ import {
 import { colors } from '~/styles/index';
 
 export default function Home() {
+  const userPath = useSelector((state) => state.user.path);
+
   const [visible, setVisible] = useState(false);
   const [categories, setCategories] = useState([]);
 
@@ -31,13 +33,14 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const query = db.collection('categories');
+    const userRef = getDocument(userPath);
+    const query = db.collection('categories').where('user', '==', userRef);
     const unsubscribeCategory = documentSnapShot(query, (data) =>
       setCategories(data)
     );
 
     return unsubscribeCategory;
-  }, []);
+  }, [userPath]);
 
   const renderList = (item) => {
     return <TodoList category={item} />;

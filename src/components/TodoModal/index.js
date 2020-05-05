@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, Animated, TouchableOpacity } from 'react-native';
+import { useSelector } from 'react-redux';
+import { FlatList } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -30,6 +31,8 @@ import {
 } from './styles';
 
 export default function TodoModal({ categoryData, closeModal }) {
+  const userPath = useSelector((state) => state.user.path);
+
   const [title, setTitle] = useState(null);
   const [notes, setNotes] = useState([]);
   const [countCompleted, setCountCompleted] = useState(0);
@@ -37,14 +40,18 @@ export default function TodoModal({ categoryData, closeModal }) {
 
   useEffect(() => {
     const categoryRef = getDocument(categoryData.path);
+    const userRef = getDocument(userPath);
+
     const query = db
       .collection('notes')
       .where('category', '==', categoryRef)
+      .where('user', '==', userRef)
       .where('actived', '==', true);
+
     const unsubscribeNotes = documentSnapShot(query, (data) => setNotes(data));
 
     return unsubscribeNotes;
-  }, [categoryData]);
+  }, [categoryData, userPath]);
 
   useEffect(() => {
     const count = notes.filter((note) => note.completed).length;
@@ -53,7 +60,9 @@ export default function TodoModal({ categoryData, closeModal }) {
 
   const handleAdd = async () => {
     const categoryRef = getDocument(categoryData.path);
-    await create({ title, categoryRef });
+    const userRef = getDocument(userPath);
+
+    await create({ title, categoryRef, userRef });
 
     setTitle(null);
   };

@@ -3,14 +3,14 @@ import { Alert } from 'react-native';
 
 export function findNotesByCategory() {}
 
-export async function create({ title, categoryRef }) {
+export async function create({ title, categoryRef, userRef }) {
   try {
     const note = await db.collection('notes').add({
       name: title,
       completed: false,
       actived: true,
       category: categoryRef,
-      user: null,
+      user: userRef,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
