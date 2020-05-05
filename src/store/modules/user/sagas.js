@@ -19,7 +19,7 @@ export function* create({ userData }) {
       updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
     };
 
-    yield db.collection('users').add(data);
+    yield db.collection('users').doc(data.uid).set(data);
 
     yield put(createUserSuccess());
   } catch (error) {
