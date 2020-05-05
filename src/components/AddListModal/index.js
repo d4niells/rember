@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 // services
+import { getDocument } from '~/services/firestoreHelpers';
 import { createCategory } from '~/services/categories';
 import {
   KeyboardAvoiding,
@@ -16,6 +18,8 @@ import {
 import { colors } from '~/styles/index';
 
 export default function AddListModal({ closeModal }) {
+  const userPath = useSelector((state) => state.user.path);
+
   const [name, setName] = useState('');
   const [color, setColor] = useState(colors.blue);
   const backgorundColors = [
@@ -35,7 +39,8 @@ export default function AddListModal({ closeModal }) {
   };
 
   const createTodo = async () => {
-    await createCategory({ name, color });
+    const userRef = getDocument(userPath);
+    await createCategory({ name, color, userRef });
     closeModal();
   };
 

@@ -5,7 +5,7 @@ export async function createCategory(data) {
   try {
     await db.collection('categories').add({
       name: data.name,
-      user: null,
+      user: data.userRef,
       color: data.color,
       todos: [],
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
