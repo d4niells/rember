@@ -11,9 +11,16 @@ export function createUserSuccess() {
   };
 }
 
-export function userResquest(email) {
+export function userResquest(uid) {
   return {
     type: '@auth/USER_REQUEST',
-    email,
+    uid,
+  };
+}
+
+export function userResquestSuccess(user) {
+  return {
+    type: '@auth/USER_REQUEST_SUCCESS',
+    user,
   };
 }

@@ -1,6 +1,6 @@
 import { Alert } from 'react-native';
 import { takeLatest, put, all } from 'redux-saga/effects';
-import { createUserSuccess } from './actions';
+import { createUserSuccess, userResquestSuccess } from './actions';
 import { signFailure } from '../auth/actions';
 import db, { firebase } from '~/services/firebase';
 
@@ -19,7 +19,7 @@ export function* create({ userData }) {
       updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
     };
 
-    yield db.collection('users').add(data);
+    yield db.collection('users').doc(data.uid).set(data);
 
     yield put(createUserSuccess());
   } catch (error) {
@@ -28,4 +28,19 @@ export function* create({ userData }) {
   }
 }
 
-export default all([takeLatest('@auth/CREATE_USER', create)]);
+export function* userRequest({ uid }) {
+  try {
+    const userDoc = yield db.collection('users').doc(uid).get();
+    const userData = { ...userDoc.data(), path: userDoc.ref.path };
+
+    yield put(userResquestSuccess(userData));
+  } catch (error) {
+    yield put(signFailure());
+    Alert.alert('Error', 'Check your internet connection.');
+  }
+}
+
+export default all([
+  takeLatest('@auth/CREATE_USER', create),
+  takeLatest('@auth/USER_REQUEST', userRequest),
+]);
