@@ -5,10 +5,13 @@ const INITIAL_STATE = {
   path: null,
   email: null,
   name: null,
+  username: null,
   firstName: null,
   lastName: null,
+  emailVerified: null,
   photo: null,
-  birthdate: null,
+  phoneNumber: null,
+  birthday: null,
 };
 
 export default function user(state = INITIAL_STATE, action) {
@@ -24,22 +27,28 @@ export default function user(state = INITIAL_STATE, action) {
         draft.uid = action.user.uid;
         draft.path = action.user.path;
         draft.email = action.user.email;
+        draft.username = action.user.username;
         draft.name = action.user.name;
         draft.firstName = action.user.firstName;
         draft.lastName = action.user.lastName;
+        draft.phoneNumber = action.user.phoneNumber;
+        draft.emailVerified = action.user.emailVerified;
         draft.photo = action.user.photo;
-        draft.birthdate = action.user.birthdate;
+        draft.birthday = action.user.birthday;
         break;
       }
       case '@auth/SIGN_OUT': {
         draft.uid = null;
         draft.path = null;
         draft.email = null;
+        draft.username = null;
         draft.name = null;
         draft.firstName = null;
         draft.lastName = null;
+        draft.phoneNumber = null;
+        draft.emailVerified = null;
         draft.photo = null;
-        draft.birthdate = null;
+        draft.birthday = null;
         break;
       }
       default:

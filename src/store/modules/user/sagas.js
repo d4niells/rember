@@ -30,13 +30,13 @@ export function* create({ userData }) {
 
 export function* userRequest({ uid }) {
   try {
-    const userDocs = yield db.collection('users').doc(uid).get();
-    const userData = userDocs.data();
+    const userDoc = yield db.collection('users').doc(uid).get();
+    const userData = { ...userDoc.data(), path: userDoc.ref.path };
 
     yield put(userResquestSuccess(userData));
   } catch (error) {
     yield put(signFailure());
-    Alert.alert('Error', 'Create user failed, check your internet connection.');
+    Alert.alert('Error', 'Check your internet connection.');
   }
 }
 
