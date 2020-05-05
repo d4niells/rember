@@ -28,7 +28,7 @@ export default function SignUp({ navigation }) {
     if (email.length === 0 || password.length === 0 || name.length === 0) {
       Alert.alert('Error', 'Fields Cannot be empty.');
     } else {
-      dispatch(signUpResquest(email, password));
+      dispatch(signUpResquest({ name, email, password }));
     }
   };
 

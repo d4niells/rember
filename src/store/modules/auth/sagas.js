@@ -1,6 +1,7 @@
 import { Alert } from 'react-native';
-import { takeLatest, call, put, all } from 'redux-saga/effects';
+import { takeLatest, call, put, all, take } from 'redux-saga/effects';
 import { signInSuccess, signUpSuccess, signFailure } from './actions';
+import { createUser } from '../user/actions';
 import { auth } from '~/services/firebase';
 
 export function* signIn({ payload }) {
@@ -38,7 +39,15 @@ export function* signUp({ payload }) {
   try {
     const { email, password } = payload;
 
-    yield call([auth, auth.createUserWithEmailAndPassword], email, password);
+    const data = yield call(
+      [auth, auth.createUserWithEmailAndPassword],
+      email,
+      password
+    );
+
+    yield put(createUser({ ...data, ...payload }));
+
+    yield take('@auth/CREATE_USER_SUCCESS');
 
     yield put(signUpSuccess());
   } catch (error) {
