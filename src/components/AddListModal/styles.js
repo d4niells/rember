@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { FlatList } from 'react-native';
 import { colors } from '~/styles/index';
 
 export const KeyboardAvoiding = styled.KeyboardAvoidingView`
@@ -37,16 +38,18 @@ export const Input = styled.TextInput`
 `;
 
 export const ContainerSelect = styled.View`
-  margin-top: 12px;
+  margin: 15px 0px;
   flex-direction: row;
-  justify-content: space-between;
 `;
+
+export const ListColors = styled.FlatList``;
 
 export const SelectColor = styled.TouchableOpacity`
   width: 30px;
   height: 30px;
   border-radius: 6px;
   background-color: ${(props) => props.background};
+  margin: 0px 5px;
 `;
 
 export const Submit = styled.TouchableOpacity`
