@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { FlatList } from 'react-native';
 import { useSelector } from 'react-redux';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+// components
+import Button from '~/components/Button';
 // services
 import { getDocument } from '~/services/firestoreHelpers';
 import { createCategory } from '~/services/categories';
@@ -12,35 +15,38 @@ import {
   Input,
   ContainerSelect,
   SelectColor,
-  Submit,
+  ListColors,
   Label,
 } from './styles';
+import background from '~/styles/background';
 import { colors } from '~/styles/index';
 
 export default function AddListModal({ closeModal }) {
   const userPath = useSelector((state) => state.user.path);
 
   const [name, setName] = useState('');
+  const [loading, setLoading] = useState(false);
   const [color, setColor] = useState(colors.blue);
-  const backgorundColors = [
-    '#5CD859',
-    '#24A6D9',
-    '#595BD9',
-    '#8022D9',
-    '#D159D8',
-    '#D85963',
-    '#D88559',
-  ];
 
   const renderColors = () => {
-    return backgorundColors.map((color) => {
-      return <SelectColor onPress={() => setColor(color)} background={color} />;
-    });
+    return (
+      <ListColors
+        data={background}
+        keyExtractor={(item) => item}
+        horizontal={true}
+        showsHorizontalScrollIndicator={true}
+        renderItem={({ item }) => (
+          <SelectColor onPress={() => setColor(item)} background={item} />
+        )}
+      />
+    );
   };
 
   const createTodo = async () => {
+    setLoading(true);
     const userRef = getDocument(userPath);
     await createCategory({ name, color, userRef });
+    setLoading(false);
     closeModal();
   };
 
@@ -59,9 +65,13 @@ export default function AddListModal({ closeModal }) {
         />
         <ContainerSelect>{renderColors()}</ContainerSelect>
 
-        <Submit background={color} onPress={() => createTodo()}>
+        <Button
+          background={color}
+          loading={loading}
+          onPress={() => createTodo()}
+        >
           <Label>Create</Label>
-        </Submit>
+        </Button>
       </Content>
     </KeyboardAvoiding>
   );

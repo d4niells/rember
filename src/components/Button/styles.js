@@ -7,7 +7,8 @@ export const LargeButton = styled.TouchableOpacity`
   border-radius: 5px;
   justify-content: center;
   align-items: center;
-  background-color: ${colors.primary};
+  background-color: ${(props) =>
+    props && props.background ? props.background : colors.primary};
 `;
 
 export const Label = styled.Text`
