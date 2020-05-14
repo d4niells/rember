@@ -1,17 +1,18 @@
 import styled from 'styled-components/native';
-import {colors} from '~/styles/index';
+import { colors } from '~/styles/index';
 
-export const Container = styled.TouchableOpacity.attrs({activeOpacity: 0.9})`
-  width: 200px;
-  background-color: ${({background}) => background};
-  padding: 30px 16px;
-  border-radius: 6px;
-  margin: 0px 12px;
-  align-items: center;
+export const Container = styled.TouchableOpacity.attrs({ activeOpacity: 0.9 })`
+  flex: 1;
+  min-height: 250px;
+  margin: 8px 8px 8px 8px; /* Some gutter */
+  background-color: ${({ background }) => background};
+  border-radius: 20px;
+  padding: 20px 0px;
 `;
 
 export const Title = styled.Text`
-  font-size: 24px;
+  flex-wrap: wrap;
+  font-size: 18px;
   font-weight: 700;
   color: ${colors.white};
   margin-bottom: 18px;
