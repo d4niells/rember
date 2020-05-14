@@ -1,10 +1,10 @@
 import styled from 'styled-components/native';
 import { colors } from '~/styles/index';
 
-export const Container = styled.View`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
+export const Container = styled.ScrollView.attrs({
+  contentContainerStyle: { paddingTop: 160 },
+  showsVerticalScrollIndicator: false,
+})`
   background-color: ${colors.white};
 `;
 
@@ -45,6 +45,8 @@ export const AddList = styled.TouchableOpacity`
 `;
 
 export const ContainerFlatlist = styled.View`
-  height: 275px;
-  padding-left: 30px;
+  flex: 1;
+  width: 100%;
+  flex-wrap: wrap;
+  align-content: stretch;
 `;

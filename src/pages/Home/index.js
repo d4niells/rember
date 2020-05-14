@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { FlatList } from 'react-native';
+import { FlatList, ScrollView } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 // Components
 import TodoList from '~/components/TodoList';
@@ -71,8 +71,8 @@ export default function Home() {
         <FlatList
           data={categories}
           keyExtractor={(item) => item.id}
-          horizontal={true}
-          showsHorizontalScrollIndicator={true}
+          numColumns={2}
+          decelerationRate={0}
           renderItem={({ item }) => renderList(item)}
         />
       </ContainerFlatlist>
