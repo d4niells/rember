@@ -2,36 +2,32 @@ import styled from 'styled-components/native';
 import { colors } from '~/styles/index';
 
 export const Container = styled.TouchableOpacity.attrs({ activeOpacity: 0.9 })`
-  flex: 1;
-  min-height: 250px;
-  margin: 8px 8px 8px 8px; /* Some gutter */
+  width: 170px;
+  height: 160px;
+  margin: 20px 20px 20px 0px; /* Some gutter */
   background-color: ${({ background }) => background};
   border-radius: 20px;
-  padding: 20px 0px;
+  padding: 30px 30px;
+  box-shadow: 2px 0px 10px ${colors.boxShadow};
 `;
 
 export const Title = styled.Text`
   flex-wrap: wrap;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
-  color: ${colors.white};
-  margin-bottom: 18px;
-  text-align: center;
+  color: ${colors.black};
+  margin-top: 20px;
+  margin-bottom: 8px;
 `;
 
 export const Progress = styled.View`
-  align-items: center;
-`;
-
-export const Count = styled.Text`
-  font-size: 40px;
-  color: ${colors.white};
-  font-weight: 200;
+  align-items: flex-start;
+  justify-content: space-between;
 `;
 
 export const SubTitle = styled.Text`
   font-size: 12px;
-  color: ${colors.white};
+  color: ${colors.gray};
   font-weight: 700;
 `;
 
