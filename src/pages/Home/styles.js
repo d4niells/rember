@@ -1,34 +1,28 @@
 import styled from 'styled-components/native';
 import { colors } from '~/styles/index';
 
-export const Container = styled.ScrollView.attrs({
-  contentContainerStyle: { paddingTop: 160 },
-  showsVerticalScrollIndicator: false,
-})`
-  background-color: ${colors.white};
+export const Container = styled.View`
+  flex: 1;
+  background-color: ${colors.primary};
 `;
 
 export const Header = styled.View`
-  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const Devider = styled.View`
-  flex: 1;
-  background-color: ${colors.lightBlue};
-  height: 1px;
-  align-self: center;
+export const Footer = styled.View`
+  flex: 2;
+  background-color: ${colors.white};
+  border-radius: 30px;
 `;
 
 export const Title = styled.Text`
-  font-size: 38px;
+  font-size: 28px;
   font-weight: 800;
-  color: ${colors.black};
+  color: ${colors.white};
   padding: 0px 20px;
-`;
-
-export const Spam = styled.Text`
-  font-weight: 300;
-  color: ${colors.blue};
 `;
 
 export const ContainerButtom = styled.View`
@@ -44,9 +38,4 @@ export const AddList = styled.TouchableOpacity`
   border-radius: 5px;
 `;
 
-export const ContainerFlatlist = styled.View`
-  flex: 1;
-  width: 100%;
-  flex-wrap: wrap;
-  align-content: stretch;
-`;
+export const ContainerFlatlist = styled.View``;

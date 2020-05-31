@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { FlatList, ScrollView } from 'react-native';
+import { FlatList } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 // Components
 import TodoList from '~/components/TodoList';
@@ -13,9 +13,8 @@ import db from '~/services/firebase';
 import {
   Container,
   Header,
-  Devider,
+  Footer,
   Title,
-  Spam,
   ContainerButtom,
   AddList,
   ContainerFlatlist,
@@ -28,10 +27,6 @@ export default function Home() {
   const [visible, setVisible] = useState(false);
   const [categories, setCategories] = useState([]);
 
-  const toggleVisible = () => {
-    setVisible(!visible);
-  };
-
   useEffect(() => {
     const userRef = getDocument(userPath);
     const query = db.collection('categories').where('user', '==', userRef);
@@ -42,40 +37,41 @@ export default function Home() {
     return unsubscribeCategory;
   }, [userPath]);
 
+  const toggleVisible = () => {
+    setVisible(!visible);
+  };
+
   const renderList = (item) => {
     return <TodoList category={item} />;
   };
 
   return (
     <Container>
+      <Header>
+        <Title>Welcome to Rember!</Title>
+      </Header>
+
+      <Footer>
+        <ContainerButtom>
+          <AddList onPress={() => toggleVisible()}>
+            <AntDesign name="plus" size={20} color={colors.blue} />
+          </AddList>
+        </ContainerButtom>
+        <ContainerFlatlist>
+          <FlatList
+            data={categories}
+            keyExtractor={(item) => item.id}
+            horizontal={true}
+            decelerationRate={0}
+            pagingEnabled={true}
+            renderItem={({ item }) => renderList(item)}
+          />
+        </ContainerFlatlist>
+      </Footer>
+
       <Modal visible={visible} close={() => toggleVisible()}>
         <AddListModal closeModal={toggleVisible} />
       </Modal>
-
-      <Header>
-        <Devider />
-        <Title>
-          Todo <Spam>lists</Spam>
-        </Title>
-        <Devider />
-      </Header>
-
-      <ContainerButtom>
-        <AddList onPress={() => toggleVisible()}>
-          <AntDesign name="plus" size={20} color={colors.blue} />
-        </AddList>
-        <Spam>Add list</Spam>
-      </ContainerButtom>
-
-      <ContainerFlatlist>
-        <FlatList
-          data={categories}
-          keyExtractor={(item) => item.id}
-          numColumns={2}
-          decelerationRate={0}
-          renderItem={({ item }) => renderList(item)}
-        />
-      </ContainerFlatlist>
     </Container>
   );
 }
