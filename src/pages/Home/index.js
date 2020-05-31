@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { FlatList } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 // Components
 import TodoList from '~/components/TodoList';
