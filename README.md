@@ -5,12 +5,13 @@ Rember
 <p align="center"> 
 <img src="https://i.ibb.co/kX4XS9v/icon.png" width="100" heigth="100">
 </p>
-
-<p align="center">
-  <a href="LICENSE" >
-    <img alt="License" src="https://img.shields.io/badge/license-MIT-%23F8952D">
-  </a>
-</p>
+<div align="center">
+  <p>
+    <a href="LICENSE" >
+      <img alt="License" src="https://img.shields.io/badge/license-MIT-%23F8952D">
+    </a>
+  </p>
+</div>
 
 <h3 align="center">  
   <a href="#information_source-sobre">Sobre</a> |
