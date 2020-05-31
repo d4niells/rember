@@ -8,7 +8,7 @@ Rember
 <div align="center">
   <p>
     <a href="LICENSE" >
-      <img alt="License" src="https://img.shields.io/badge/license-MIT-%23F8952D">
+      <img alt="License" src="https://img.shields.io/badge/license-MIT-%23F8952D"       style={max-width:100%;border: 5px solid transparent;border-radius: 20px;}>
     </a>
   </p>
 </div>
