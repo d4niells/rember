@@ -33,6 +33,9 @@ Rember
   <img src="https://i.ibb.co/17DWSNK/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-18-43.png" width="140" />
 </div>
 
+<br/>
+<br/>
+
 ## :information_source: Sobre
 
 Rember é um projeto de minha autoria, que consiste em um app de lembretes, gerenciamento de tarefas, gerenciar um rotina, hábitos e muitos outros recursos.
