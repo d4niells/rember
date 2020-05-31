@@ -20,6 +20,10 @@ Rember
   <a href="#licença">Licença</a> 
 </h3>
 
+<br/>
+<br/>
+<br/>
+
 <div style={display: flex, flex-direction:row, justify-content: center, align-items: center}>
   <img src="https://i.ibb.co/NTQWm58/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-12-25.png" width="140" />
   <img src="https://i.ibb.co/PC8fssm/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-12-31.png" width="140" />
