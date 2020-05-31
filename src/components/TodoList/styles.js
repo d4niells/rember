@@ -2,9 +2,9 @@ import styled from 'styled-components/native';
 import { colors } from '~/styles/index';
 
 export const Container = styled.TouchableOpacity.attrs({ activeOpacity: 0.9 })`
-  width: 180px;
+  width: 170px;
   height: 160px;
-  margin: 20px 13px 20px 13px; /* Some gutter */
+  margin: 20px 20px 20px 0px; /* Some gutter */
   background-color: ${({ background }) => background};
   border-radius: 20px;
   padding: 30px 30px;
