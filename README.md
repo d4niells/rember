@@ -3,17 +3,14 @@ Rember
 </h2>
 
 <p align="center"> 
-  <img src="https://i.ibb.co/kX4XS9v/icon.png" width="100" heigth="100" style="border: 5px solid transparent;
-    border-radius: 20px;">
+  <img src="https://i.ibb.co/kX4XS9v/icon.png" width="100" heigth="100">
 </p>
-<div align="center">
-  <p>
-    <a href="LICENSE" >
-      <img alt="License" src="https://img.shields.io/badge/license-MIT-%23F8952D" style="border: 5px solid transparent;
-    border-radius: 20px;">
-    </a>
-  </p>
-</div>
+
+<p align="center">
+  <a href="LICENSE" >
+    <img alt="License" src="https://img.shields.io/badge/license-MIT-%23F8952D">
+  </a>
+</p>
 
 <h3 align="center">  
   <a href="#information_source-sobre">Sobre</a> |
@@ -28,18 +25,12 @@ Rember
 <br/>
 
 <div style={display: flex, flex-direction:row, justify-content: center, align-items: center}>
-  <img src="https://i.ibb.co/NTQWm58/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-12-25.png" width="140" style="border: 5px solid transparent;
-    border-radius: 20px;"/>
-  <img src="https://i.ibb.co/PC8fssm/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-12-31.png" width="140" style="border: 5px solid transparent;
-    border-radius: 20px;"/>
-  <img src="https://i.ibb.co/QkJLmwf/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-14-13-11.png" width="140" style="border: 5px solid transparent;
-    border-radius: 20px;"/>
-  <img src="https://i.ibb.co/QM3hJbx/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-18-34.png" width="140" style="border: 5px solid transparent;
-    border-radius: 20px;"/>
-  <img src="https://i.ibb.co/H4MSv6x/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-18-38.png" width="140" style="border: 5px solid transparent;
-    border-radius: 20px;"/>
-  <img src="https://i.ibb.co/17DWSNK/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-18-43.png" width="140" style="border: 5px solid transparent;
-    border-radius: 20px;"/>
+  <img src="https://i.ibb.co/NTQWm58/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-12-25.png" width="140" />
+  <img src="https://i.ibb.co/PC8fssm/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-12-31.png" width="140" />
+  <img src="https://i.ibb.co/QkJLmwf/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-14-13-11.png" width="140" />
+  <img src="https://i.ibb.co/QM3hJbx/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-18-34.png" width="140" />
+  <img src="https://i.ibb.co/H4MSv6x/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-18-38.png" width="140" />
+  <img src="https://i.ibb.co/17DWSNK/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-18-43.png" width="140" />
 </div>
 
 <br/>
