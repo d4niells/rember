@@ -10,6 +10,7 @@ const colors = {
   lightBlue: '#A7CBD9',
   red: '#D85963',
   white: '#FFFFFF',
+  boxShadow: '#eceaea',
   error: '#f13a59',
 };
 

@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 // Components
 import TodoModal from '~/components/TodoModal';
 import Modal from '~/components/Modal';
 // Styles
 import { Container, Title, Progress, Count, SubTitle } from './styles';
+import { colors } from '~/styles/index';
 
 export default function TodoList({ category }) {
   const [showListVisible, setShowListVisible] = useState(false);
-  const countCompleted = category.todos.filter((todo) => todo.completed).length;
-  const remainingCount = category.todos.length - countCompleted;
+  const taskCounter = category.todos.length;
 
   useEffect(() => {}, [category]);
 
@@ -24,15 +25,11 @@ export default function TodoList({ category }) {
           closeModal={() => toggleListModal()}
         />
       </Modal>
-      <Container background={category.color} onPress={() => toggleListModal()}>
-        <Title>{category.name}</Title>
+      <Container background={colors.white} onPress={() => toggleListModal()}>
         <Progress>
-          <Count>{remainingCount}</Count>
-          <SubTitle>Remaining</SubTitle>
-        </Progress>
-        <Progress>
-          <Count>{countCompleted}</Count>
-          <SubTitle>Completed</SubTitle>
+          <Icon color={category.color} size={30} name={'notebook'} />
+          <Title>{category.name}</Title>
+          <SubTitle>{taskCounter} Tasks</SubTitle>
         </Progress>
       </Container>
     </>
