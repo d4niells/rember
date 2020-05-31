@@ -6,6 +6,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import TodoList from '~/components/TodoList';
 import AddListModal from '~/components/AddListModal';
 import Modal from '~/components/Modal';
+import Section from '~/components/Section';
 // Services
 import { documentSnapShot, getDocument } from '~/services/firestoreHelpers';
 import db from '~/services/firebase';
@@ -16,6 +17,7 @@ import {
   Footer,
   Title,
   ContainerButtom,
+  List,
   AddList,
   ContainerFlatlist,
 } from './styles';
@@ -57,16 +59,17 @@ export default function Home() {
             <AntDesign name="plus" size={20} color={colors.blue} />
           </AddList>
         </ContainerButtom>
-        <ContainerFlatlist>
-          <FlatList
-            data={categories}
-            keyExtractor={(item) => item.id}
-            horizontal={true}
-            decelerationRate={0}
-            pagingEnabled={true}
-            renderItem={({ item }) => renderList(item)}
-          />
-        </ContainerFlatlist>
+        <Section title={'Categories'}>
+          <ContainerFlatlist>
+            <List
+              data={categories}
+              keyExtractor={(item) => item.id}
+              horizontal={true}
+              decelerationRate={0}
+              renderItem={({ item }) => renderList(item)}
+            />
+          </ContainerFlatlist>
+        </Section>
       </Footer>
 
       <Modal visible={visible} close={() => toggleVisible()}>

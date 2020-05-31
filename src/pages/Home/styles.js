@@ -31,6 +31,10 @@ export const ContainerButtom = styled.View`
   align-items: center;
 `;
 
+export const List = styled.FlatList.attrs({
+  paddingHorizontal: 20,
+})``;
+
 export const AddList = styled.TouchableOpacity`
   border-width: 1px;
   border-color: ${colors.blue};
