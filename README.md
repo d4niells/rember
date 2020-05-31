@@ -3,12 +3,12 @@ Rember
 </h2>
 
 <p align="center"> 
-<img src="https://ibb.co/GRWR5tN" width="300" heigth="300">
+<img src="https://i.ibb.co/kX4XS9v/icon.png" width="100" heigth="100">
 </p>
 
 <p align="center">
   <a href="LICENSE" >
-<img alt="License" src="https://img.shields.io/badge/license-MIT-%23F8952D">
+    <img alt="License" src="https://img.shields.io/badge/license-MIT-%23F8952D">
   </a>
 </p>
 
@@ -20,7 +20,14 @@ Rember
   <a href="#licença">Licença</a> 
 </h3>
 
-<img src="https://ibb.co/jJB3Wmc https://ibb.co/12xwYYv https://ibb.co/f2vH8zh https://ibb.co/m4VdRDP https://ibb.co/LRqFwmJ https://ibb.co/gm5Kn8w" width="1200">
+<div style={display: flex, flex-direction:row}>
+  <img src="https://i.ibb.co/NTQWm58/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-12-25.png" width="200" />
+  <img src="https://i.ibb.co/PC8fssm/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-12-31.png" width="200" />
+  <img src="https://i.ibb.co/NsSK1d8/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-18-27.png" width="200" />
+  <img src="https://i.ibb.co/QM3hJbx/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-18-34.png" width="200" />
+  <img src="https://i.ibb.co/H4MSv6x/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-18-38.png" width="200" />
+  <img src="https://i.ibb.co/17DWSNK/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-18-43.png" width="200" />
+</div>
 
 ## :information_source: Sobre
 
