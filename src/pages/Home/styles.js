@@ -20,6 +20,7 @@ export const Footer = styled.View.attrs({
 })`
   flex: 2;
   background-color: ${colors.white};
+  box-shadow: 5px 5px 20px ${colors.blackPrimary};
 `;
 
 export const Title = styled.Text`

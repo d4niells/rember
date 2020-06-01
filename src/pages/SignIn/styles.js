@@ -8,43 +8,42 @@ export const Container = styled.KeyboardAvoidingView.attrs({
 })`
   flex: 1;
   justify-content: center;
-  padding: 0 15px;
-  background-color: ${colors.background};
+  background-color: ${colors.primary};
 `;
 
 export const Header = styled.View`
+  flex: 2;
   justify-content: center;
   align-items: center;
 `;
 
-export const Logo = styled.View`
-  width: 160px;
-  height: 160px;
+export const Body = styled.View.attrs({
+  borderTopRightRadius: 30,
+  borderTopLeftRadius: 30,
+})`
+  flex: 2.5;
+  justify-content: center;
+  background-color: ${colors.white};
+  padding: 0px 15px;
+  box-shadow: 5px 5px 20px ${colors.blackPrimary};
+`;
+
+export const Footer = styled.View`
+  padding: 40px 0px;
+  flex-direction: row;
+`;
+
+export const Image = styled.Image.attrs({
+  resizeMode: 'contain',
+})`
   align-self: center;
-  border-radius: 100px;
-  background-color: ${colors.primary};
-  justify-content: center;
-  align-items: center;
+  width: 180px;
+  height: 180px;
 `;
 
-export const LogoName = styled.Text`
-  color: ${colors.white};
-  font-weight: 800;
-  font-size: 20px;
-`;
-
-export const Body = styled.View`
-  align-self: stretch;
-  margin-top: 50px;
-`;
+export const Form = styled.View``;
 
 export const Link = styled.TouchableOpacity``;
-
-export const ForgotPasswordView = styled.View`
-  width: 100%;
-  align-items: flex-end;
-  margin-bottom: 24px;
-`;
 
 export const Label = styled.Text`
   color: ${colors.secondary};
@@ -55,7 +54,8 @@ export const LabelLink = styled.Text`
   color: ${colors.primary};
 `;
 
-export const Footer = styled.View`
-  flex-direction: row;
-  margin-top: 30px;
+export const ForgotPassword = styled.View`
+  width: 100%;
+  align-items: flex-end;
+  margin-bottom: 24px;
 `;
