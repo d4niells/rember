@@ -3,32 +3,32 @@ import { colors } from '~/styles/index';
 
 export const Container = styled.View`
   flex: 1;
-  align-items: center;
-  justify-content: center;
-  background-color: ${colors.white};
+  background-color: ${colors.primary};
 `;
 
 export const Header = styled.View`
-  flex-direction: row;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const Devider = styled.View`
+export const Footer = styled.View.attrs({
+  borderBottomLeftRadius: 0,
+  borderBottomRightRadius: 0,
+  borderTopLeftRadius: 30,
+  borderTopRightRadius: 30,
+})`
   flex: 1;
-  background-color: ${colors.lightBlue};
-  height: 1px;
-  align-self: center;
+  background-color: ${colors.white};
+  box-shadow: 5px 5px 20px ${colors.blackPrimary};
+  padding-bottom: 20px;
 `;
 
 export const Title = styled.Text`
-  font-size: 38px;
+  font-size: 28px;
   font-weight: 800;
-  color: ${colors.black};
+  color: ${colors.white};
   padding: 0px 20px;
-`;
-
-export const Spam = styled.Text`
-  font-weight: 300;
-  color: ${colors.blue};
 `;
 
 export const ContainerButtom = styled.View`
@@ -37,6 +37,10 @@ export const ContainerButtom = styled.View`
   align-items: center;
 `;
 
+export const List = styled.FlatList.attrs({
+  paddingHorizontal: 20,
+})``;
+
 export const AddList = styled.TouchableOpacity`
   border-width: 1px;
   border-color: ${colors.blue};
@@ -44,7 +48,4 @@ export const AddList = styled.TouchableOpacity`
   border-radius: 5px;
 `;
 
-export const ContainerFlatlist = styled.View`
-  height: 275px;
-  padding-left: 30px;
-`;
+export const ContainerFlatlist = styled.View``;

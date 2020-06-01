@@ -10,7 +10,9 @@ const colors = {
   lightBlue: '#A7CBD9',
   red: '#D85963',
   white: '#FFFFFF',
+  boxShadow: '#eceaea',
   error: '#f13a59',
+  underlayColorPrimary: 'rgba(103, 80, 223, 0.07)',
 };
 
 export { colors };

@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
+import { Alert } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { signInResquest } from '~/store/modules/auth/actions';
+
 import TextInput from '~/components/TextInput';
 import Button from '~/components/Button';
+import logo from '~/assets/images/icon.png';
+
 import {
   Container,
   Header,
+  Image,
   Body,
-  Logo,
-  LogoName,
-  ForgotPasswordView,
+  Form,
+  ForgotPassword,
   Label,
   Link,
   LabelLink,
   Footer,
 } from './styles';
-import { Alert } from 'react-native';
 
 export default function SignIn({ navigation }) {
   const dispatch = useDispatch();
@@ -25,7 +29,7 @@ export default function SignIn({ navigation }) {
 
   const submit = () => {
     if (email.length === 0 || password.length === 0) {
-      Alert.alert('Error', 'Email our password cannot be empty.');
+      Alert.alert('Atenção', 'Email ou senha não pode estar vazio.');
     } else {
       dispatch(signInResquest(email, password));
     }
@@ -34,53 +38,54 @@ export default function SignIn({ navigation }) {
   return (
     <Container>
       <Header>
-        <Logo>
-          <LogoName>Rember</LogoName>
-        </Logo>
+        <Image source={logo} />
       </Header>
       <Body>
-        <TextInput
-          placeholder="Email"
-          returnKeyType="next"
-          value={email.value}
-          onChangeText={(text) => setEmail(text)}
-          autoCapitalize="none"
-          autoCompleteType="email"
-          textContentType="emailAddress"
-          keyboardType="email-address"
-          editable={!loading}
-        />
+        <Form>
+          <TextInput
+            placeholder="Email"
+            returnKeyType="next"
+            value={email.value}
+            onChangeText={(text) => setEmail(text)}
+            autoCapitalize="none"
+            autoCompleteType="email"
+            textContentType="emailAddress"
+            keyboardType="email-address"
+            editable={!loading}
+          />
 
-        <TextInput
-          placeholder="Password"
-          returnKeyType="done"
-          value={password.value}
-          onChangeText={(text) => setPassword(text)}
-          secureTextEntry
-          editable={!loading}
-        />
+          <TextInput
+            placeholder="Senha"
+            returnKeyType="done"
+            value={password.value}
+            onChangeText={(text) => setPassword(text)}
+            secureTextEntry
+            editable={!loading}
+            onSubmitEditing={submit}
+          />
 
-        <ForgotPasswordView>
-          <Link onPress={() => navigation.navigate('ForgotPasswordScreen')}>
-            <Label>Forgot your password?</Label>
+          <ForgotPassword>
+            <Link onPress={() => navigation.navigate('ForgotPasswordScreen')}>
+              <Label>Esqueceu sua senha?</Label>
+            </Link>
+          </ForgotPassword>
+
+          <Button
+            mode="contained"
+            onPress={submit}
+            loading={loading}
+            disabled={loading}
+          >
+            Entrar
+          </Button>
+        </Form>
+        <Footer>
+          <Label>Não tem uma conta? </Label>
+          <Link onPress={() => navigation.navigate('SignUp')}>
+            <LabelLink>Inscrever-se</LabelLink>
           </Link>
-        </ForgotPasswordView>
-
-        <Button
-          mode="contained"
-          onPress={submit}
-          loading={loading}
-          disabled={loading}
-        >
-          Login
-        </Button>
+        </Footer>
       </Body>
-      <Footer>
-        <Label>Don’t have an account? </Label>
-        <Link onPress={() => navigation.navigate('SignUp')}>
-          <LabelLink>Sign up</LabelLink>
-        </Link>
-      </Footer>
     </Container>
   );
 }
