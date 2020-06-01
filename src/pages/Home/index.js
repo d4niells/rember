@@ -6,12 +6,14 @@ import TodoList from '~/components/TodoList';
 import AddListModal from '~/components/AddListModal';
 import Modal from '~/components/Modal';
 import Section from '~/components/Section';
+import PageScroll from '~/components/PageScroll';
 // Services
 import { documentSnapShot, getDocument } from '~/services/firestoreHelpers';
 import db from '~/services/firebase';
 // Styles
 import {
   Container,
+  Scroll,
   Header,
   Footer,
   Title,
@@ -48,32 +50,47 @@ export default function Home() {
 
   return (
     <Container>
-      <Header>
-        <Title>Welcome to Rember!</Title>
-      </Header>
+      <PageScroll>
+        <Header>
+          <Title>Welcome to Rember!</Title>
+        </Header>
 
-      <Footer>
-        <ContainerButtom>
-          <AddList onPress={() => toggleVisible()}>
-            <AntDesign name="plus" size={20} color={colors.blue} />
-          </AddList>
-        </ContainerButtom>
-        <Section title={'Categories'}>
-          <ContainerFlatlist>
-            <List
-              data={categories}
-              keyExtractor={(item) => item.id}
-              horizontal={true}
-              decelerationRate={0}
-              renderItem={({ item }) => renderList(item)}
-            />
-          </ContainerFlatlist>
-        </Section>
-      </Footer>
+        <Footer>
+          <ContainerButtom>
+            <AddList onPress={() => toggleVisible()}>
+              <AntDesign name="plus" size={20} color={colors.blue} />
+            </AddList>
+          </ContainerButtom>
 
-      <Modal visible={visible} close={() => toggleVisible()}>
-        <AddListModal closeModal={toggleVisible} />
-      </Modal>
+          <Section title={'Categorias'}>
+            <ContainerFlatlist>
+              <List
+                data={categories}
+                keyExtractor={(item) => item.id}
+                horizontal={true}
+                decelerationRate={0}
+                renderItem={({ item }) => renderList(item)}
+              />
+            </ContainerFlatlist>
+          </Section>
+
+          <Section title={'Hábitos'}>
+            <ContainerFlatlist>
+              <List
+                data={categories}
+                keyExtractor={(item) => item.id}
+                horizontal={true}
+                decelerationRate={0}
+                renderItem={({ item }) => renderList(item)}
+              />
+            </ContainerFlatlist>
+          </Section>
+        </Footer>
+
+        <Modal visible={visible} close={() => toggleVisible()}>
+          <AddListModal closeModal={toggleVisible} />
+        </Modal>
+      </PageScroll>
     </Container>
   );
 }

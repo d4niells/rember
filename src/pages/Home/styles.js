@@ -7,7 +7,7 @@ export const Container = styled.View`
 `;
 
 export const Header = styled.View`
-  flex: 1;
+  height: 300px;
   justify-content: center;
   align-items: center;
 `;
@@ -18,9 +18,10 @@ export const Footer = styled.View.attrs({
   borderTopLeftRadius: 30,
   borderTopRightRadius: 30,
 })`
-  flex: 2;
+  flex: 1;
   background-color: ${colors.white};
   box-shadow: 5px 5px 20px ${colors.blackPrimary};
+  padding-bottom: 20px;
 `;
 
 export const Title = styled.Text`

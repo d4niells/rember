@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 // Components
 import TodoModal from '~/components/TodoModal';
 import Modal from '~/components/Modal';
 // Styles
-import { Container, Title, Progress, Count, SubTitle } from './styles';
+import { Container, Title, Progress, SubTitle } from './styles';
 import { colors } from '~/styles/index';
 
 export default function TodoList({ category }) {
   const [showListVisible, setShowListVisible] = useState(false);
   const taskCounter = category.todos.length;
-
-  useEffect(() => {}, [category]);
 
   const toggleListModal = () => {
     setShowListVisible(!showListVisible);
@@ -29,7 +27,7 @@ export default function TodoList({ category }) {
         <Progress>
           <Icon color={category.color} size={30} name={'notebook'} />
           <Title>{category.name}</Title>
-          <SubTitle>{taskCounter} Tasks</SubTitle>
+          <SubTitle>{taskCounter} Tarefas</SubTitle>
         </Progress>
       </Container>
     </>
