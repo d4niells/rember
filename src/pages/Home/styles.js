@@ -12,10 +12,14 @@ export const Header = styled.View`
   align-items: center;
 `;
 
-export const Footer = styled.View`
+export const Footer = styled.View.attrs({
+  borderBottomLeftRadius: 0,
+  borderBottomRightRadius: 0,
+  borderTopLeftRadius: 30,
+  borderTopRightRadius: 30,
+})`
   flex: 2;
   background-color: ${colors.white};
-  border-radius: 30px;
 `;
 
 export const Title = styled.Text`
