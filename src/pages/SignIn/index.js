@@ -29,7 +29,7 @@ export default function SignIn({ navigation }) {
 
   const submit = () => {
     if (email.length === 0 || password.length === 0) {
-      Alert.alert('Error', 'Email our password cannot be empty.');
+      Alert.alert('Atenção', 'Email ou senha não pode estar vazio.');
     } else {
       dispatch(signInResquest(email, password));
     }
@@ -55,17 +55,18 @@ export default function SignIn({ navigation }) {
           />
 
           <TextInput
-            placeholder="Password"
+            placeholder="Senha"
             returnKeyType="done"
             value={password.value}
             onChangeText={(text) => setPassword(text)}
             secureTextEntry
             editable={!loading}
+            onSubmitEditing={submit}
           />
 
           <ForgotPassword>
             <Link onPress={() => navigation.navigate('ForgotPasswordScreen')}>
-              <Label>Forgot your password?</Label>
+              <Label>Esqueceu sua senha?</Label>
             </Link>
           </ForgotPassword>
 
@@ -75,13 +76,13 @@ export default function SignIn({ navigation }) {
             loading={loading}
             disabled={loading}
           >
-            Login
+            Entrar
           </Button>
         </Form>
         <Footer>
-          <Label>Don’t have an account? </Label>
+          <Label>Não tem uma conta? </Label>
           <Link onPress={() => navigation.navigate('SignUp')}>
-            <LabelLink>Sign up</LabelLink>
+            <LabelLink>Inscrever-se</LabelLink>
           </Link>
         </Footer>
       </Body>

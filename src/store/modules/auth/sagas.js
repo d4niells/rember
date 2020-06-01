@@ -24,15 +24,15 @@ export function* signIn({ payload }) {
     yield put(signFailure());
 
     if (error.code === 'auth/user-not-found') {
-      Alert.alert('Error', 'Invalid email or password.');
+      Alert.alert('Atenção', 'Email ou senha inválido.');
     } else if (error.code === 'auth/wrong-password') {
-      Alert.alert('Error', 'Invalid email or password.');
+      Alert.alert('Atenção', 'Email ou senha inválido.');
     } else if (error.code === 'auth/invalid-email') {
-      Alert.alert('Error', 'The email address is poorly formatted.');
+      Alert.alert('Oops', 'O endereço de email está mal formatado.');
     } else {
       Alert.alert(
-        'Error',
-        'Authentication failed, check your internet connection.'
+        'Ocorreu um erro',
+        'Falha na autenticação. Verifique sua conexão com a Internet.'
       );
     }
   }
@@ -57,11 +57,14 @@ export function* signUp({ payload }) {
     yield put(signFailure());
 
     if (error.code === 'auth/email-already-in-use') {
-      Alert.alert('Error', 'That email address is already in use.');
+      Alert.alert('Atenção', 'Esse endereço de email já esta em uso.');
     } else if (error.code === 'auth/invalid-email') {
-      Alert.alert('Error', 'That email address is invalid.');
+      Alert.alert('Oops', 'Esse endereço de email é inválido.');
     } else {
-      Alert.alert('Error', 'Sign Up failed, check your internet connection.');
+      Alert.alert(
+        'Ocorreu um erro',
+        'A inscrição falhou, verifique sua conexão com a Internet.'
+      );
     }
   }
 }
