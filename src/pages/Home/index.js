@@ -7,13 +7,13 @@ import AddListModal from '~/components/AddListModal';
 import Modal from '~/components/Modal';
 import Section from '~/components/Section';
 import PageScroll from '~/components/PageScroll';
+import Feature from '~/components/Feature';
 // Services
 import { documentSnapShot, getDocument } from '~/services/firestoreHelpers';
 import db from '~/services/firebase';
 // Styles
 import {
   Container,
-  Scroll,
   Header,
   Footer,
   Title,
@@ -61,28 +61,8 @@ export default function Home() {
         </Header>
 
         <Footer>
-          <Section title={'Hábitos'}>
-            <ContainerFlatlist>
-              <List
-                data={categories}
-                keyExtractor={(item) => item.id}
-                horizontal={true}
-                decelerationRate={0}
-                renderItem={({ item }) => renderList(item)}
-              />
-            </ContainerFlatlist>
-          </Section>
-
-          <Section title={'Hábitos'}>
-            <ContainerFlatlist>
-              <List
-                data={categories}
-                keyExtractor={(item) => item.id}
-                horizontal={true}
-                decelerationRate={0}
-                renderItem={({ item }) => renderList(item)}
-              />
-            </ContainerFlatlist>
+          <Section title={'Resumo de hoje'}>
+            <Feature />
           </Section>
 
           <Section title={'Categorias'}>
