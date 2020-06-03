@@ -1,7 +1,10 @@
 import styled from 'styled-components/native';
 import { colors } from '~/styles/index';
 
-export const Container = styled.TouchableOpacity.attrs({ activeOpacity: 0.9 })`
+export const Container = styled.TouchableHighlight.attrs({
+  activeOpacity: 1,
+  underlayColor: colors.underlayColorPrimary,
+})`
   width: 170px;
   height: 160px;
   margin: 20px 20px 20px 0px; /* Some gutter */

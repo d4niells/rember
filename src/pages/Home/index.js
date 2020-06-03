@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { FlatList } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 // Components
 import TodoList from '~/components/TodoList';
 import AddListModal from '~/components/AddListModal';
 import Modal from '~/components/Modal';
 import Section from '~/components/Section';
+import PageScroll from '~/components/PageScroll';
+import Feature from '~/components/Feature';
 // Services
 import { documentSnapShot, getDocument } from '~/services/firestoreHelpers';
 import db from '~/services/firebase';
@@ -49,32 +50,38 @@ export default function Home() {
 
   return (
     <Container>
-      <Header>
-        <Title>Welcome to Rember!</Title>
-      </Header>
+      <ContainerButtom>
+        <AddList onPress={() => toggleVisible()}>
+          <AntDesign name="plus" size={20} color={colors.white} />
+        </AddList>
+      </ContainerButtom>
+      <PageScroll>
+        <Header>
+          <Title>Welcome to Rember!</Title>
+        </Header>
 
-      <Footer>
-        <ContainerButtom>
-          <AddList onPress={() => toggleVisible()}>
-            <AntDesign name="plus" size={20} color={colors.blue} />
-          </AddList>
-        </ContainerButtom>
-        <Section title={'Categories'}>
-          <ContainerFlatlist>
-            <List
-              data={categories}
-              keyExtractor={(item) => item.id}
-              horizontal={true}
-              decelerationRate={0}
-              renderItem={({ item }) => renderList(item)}
-            />
-          </ContainerFlatlist>
-        </Section>
-      </Footer>
+        <Footer>
+          <Section title={'Resumo de hoje'}>
+            <Feature />
+          </Section>
 
-      <Modal visible={visible} close={() => toggleVisible()}>
-        <AddListModal closeModal={toggleVisible} />
-      </Modal>
+          <Section title={'Categorias'}>
+            <ContainerFlatlist>
+              <List
+                data={categories}
+                keyExtractor={(item) => item.id}
+                horizontal={true}
+                decelerationRate={0}
+                renderItem={({ item }) => renderList(item)}
+              />
+            </ContainerFlatlist>
+          </Section>
+        </Footer>
+
+        <Modal visible={visible} close={() => toggleVisible()}>
+          <AddListModal closeModal={toggleVisible} />
+        </Modal>
+      </PageScroll>
     </Container>
   );
 }
