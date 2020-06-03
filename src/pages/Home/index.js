@@ -50,19 +50,18 @@ export default function Home() {
 
   return (
     <Container>
+      <ContainerButtom>
+        <AddList onPress={() => toggleVisible()}>
+          <AntDesign name="plus" size={20} color={colors.white} />
+        </AddList>
+      </ContainerButtom>
       <PageScroll>
         <Header>
           <Title>Welcome to Rember!</Title>
         </Header>
 
         <Footer>
-          <ContainerButtom>
-            <AddList onPress={() => toggleVisible()}>
-              <AntDesign name="plus" size={20} color={colors.blue} />
-            </AddList>
-          </ContainerButtom>
-
-          <Section title={'Categorias'}>
+          <Section title={'Hábitos'}>
             <ContainerFlatlist>
               <List
                 data={categories}
@@ -75,6 +74,18 @@ export default function Home() {
           </Section>
 
           <Section title={'Hábitos'}>
+            <ContainerFlatlist>
+              <List
+                data={categories}
+                keyExtractor={(item) => item.id}
+                horizontal={true}
+                decelerationRate={0}
+                renderItem={({ item }) => renderList(item)}
+              />
+            </ContainerFlatlist>
+          </Section>
+
+          <Section title={'Categorias'}>
             <ContainerFlatlist>
               <List
                 data={categories}

@@ -32,6 +32,10 @@ export const Title = styled.Text`
 `;
 
 export const ContainerButtom = styled.View`
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
   margin: 30px 0px;
   justify-content: center;
   align-items: center;
@@ -41,11 +45,14 @@ export const List = styled.FlatList.attrs({
   paddingHorizontal: 20,
 })``;
 
-export const AddList = styled.TouchableOpacity`
-  border-width: 1px;
-  border-color: ${colors.blue};
-  padding: 10px;
-  border-radius: 5px;
+export const AddList = styled.TouchableHighlight.attrs({
+  activeOpacity: 1,
+  underlayColor: colors.underlayColor,
+})`
+  background-color: ${colors.primary};
+  padding: 16px;
+  border-radius: 50px;
+  box-shadow: 0px 1px 7px ${colors.primary};
 `;
 
 export const ContainerFlatlist = styled.View``;

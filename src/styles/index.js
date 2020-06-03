@@ -13,6 +13,7 @@ const colors = {
   boxShadow: '#eceaea',
   error: '#f13a59',
   underlayColorPrimary: 'rgba(103, 80, 223, 0.07)',
+  underlayColor: 'rgba(103, 80, 223, 0.77)',
 };
 
 export { colors };
