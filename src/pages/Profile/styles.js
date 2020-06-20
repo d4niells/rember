@@ -33,10 +33,10 @@ export const Title = styled.Text`
 
 export const ContainerButtom = styled.View`
   position: absolute;
-  bottom: 0px;
+  bottom: 20px;
   right: 20px;
   z-index: 1;
-  margin: 10px 0px;
+  margin: 30px 0px;
   justify-content: center;
   align-items: center;
 `;
