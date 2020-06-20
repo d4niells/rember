@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SignIn from '~/pages/SignIn';
 import SignUp from '~/pages/SignUp';
 
-import HomeTab from '~/navigation/HomeTab';
+import TabScreens from '~/navigation/TabScreens';
 
 const Stack = createStackNavigator();
 const Routes = () => {
@@ -15,7 +15,7 @@ const Routes = () => {
   return (
     <Stack.Navigator headerMode="none">
       {signed ? (
-        <Stack.Screen name="Home" component={HomeTab} />
+        <Stack.Screen name="Home" component={TabScreens} />
       ) : (
         <>
           <Stack.Screen
