@@ -2,8 +2,8 @@ import styled from 'styled-components/native';
 import { colors } from '~/styles/index';
 
 export const Container = styled.View`
-  width: 100%;
-  margin: 12px 0px;
+  flex: 1;
+  margin: 12px 5px;
 `;
 
 export const Input = styled.TextInput.attrs({

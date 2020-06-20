@@ -22,10 +22,17 @@ export const Body = styled.View.attrs({
   borderTopLeftRadius: 30,
 })`
   flex: 2.5;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: ${colors.white};
   padding: 0px 15px;
   box-shadow: 5px 5px 20px ${colors.blackPrimary};
+`;
+
+export const Title = styled.Text`
+  font-size: 20px;
+  color: ${colors.secondary};
+  font-weight: bold;
+  margin: 40px 0 25px 5px;
 `;
 
 export const Footer = styled.View`
@@ -41,7 +48,10 @@ export const Image = styled.Image.attrs({
   height: 180px;
 `;
 
-export const Form = styled.View``;
+export const Form = styled.View`
+  flex: 0.7;
+  justify-content: flex-start;
+`;
 
 export const Link = styled.TouchableOpacity``;
 

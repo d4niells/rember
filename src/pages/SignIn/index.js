@@ -6,13 +6,14 @@ import { signInResquest } from '~/store/modules/auth/actions';
 
 import TextInput from '~/components/TextInput';
 import Button from '~/components/Button';
-import logo from '~/assets/images/icon.png';
+import Logo from '~/assets/images/icon.png';
 
 import {
   Container,
   Header,
   Image,
   Body,
+  Title,
   Form,
   ForgotPassword,
   Label,
@@ -38,9 +39,10 @@ export default function SignIn({ navigation }) {
   return (
     <Container>
       <Header>
-        <Image source={logo} />
+        <Image source={Logo} />
       </Header>
       <Body>
+        <Title>Bem vindo ao Rember ;)</Title>
         <Form>
           <TextInput
             placeholder="Email"
