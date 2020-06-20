@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { signUpResquest } from '~/store/modules/auth/actions';
+
 import TextInput from '~/components/TextInput';
 import Button from '~/components/Button';
+
+import Logo from '~/assets/images/icon.png';
+
 import {
   Container,
   Header,
+  Image,
   Body,
-  Logo,
-  LogoName,
+  Title,
   FieldsForm,
+  Grid,
   Label,
   Link,
   LabelLink,
@@ -19,39 +25,60 @@ import { Alert } from 'react-native';
 
 export default function SignUp({ navigation }) {
   const dispatch = useDispatch();
+
   const loading = useSelector((state) => state.auth.loading);
+
   const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, SetConfirmPassword] = useState('');
 
   const submit = () => {
-    if (email.length === 0 || password.length === 0 || name.length === 0) {
-      Alert.alert('Error', 'Fields Cannot be empty.');
+    if (
+      name.length === 0 ||
+      lastName.lenght === 0 ||
+      email.length === 0 ||
+      password.length === 0 ||
+      confirmPassword === 0
+    ) {
+      Alert.alert('Atenção', 'Compos não podem ser vazios');
+    } else if (password !== confirmPassword) {
+      Alert.alert('Atenção', 'As senhas não coincidem.');
     } else {
-      dispatch(signUpResquest({ name, email, password }));
+      dispatch(signUpResquest({ name, lastName, email, password }));
     }
   };
 
   return (
     <Container>
       <Header>
-        <Logo>
-          <LogoName>Rember</LogoName>
-        </Logo>
+        <Image source={Logo} />
       </Header>
       <Body>
+        <Title>Crie sua conta grátis</Title>
         <FieldsForm>
+          <Grid>
+            <TextInput
+              placeholder="Nome"
+              returnKeyType="next"
+              value={name}
+              onChangeText={(text) => setName(text)}
+              autoCapitalize="none"
+              editable={!loading}
+            />
+            <TextInput
+              placeholder="Sobrenome"
+              returnKeyType="next"
+              value={lastName}
+              onChangeText={(text) => setLastName(text)}
+              autoCapitalize="none"
+              editable={!loading}
+            />
+          </Grid>
+
           <TextInput
-            placeholder="Name"
-            returnKeyType="next"
-            value={name}
-            onChangeText={(text) => setName(text)}
-            autoCapitalize="none"
-            autoCompleteType="name"
-            editable={!loading}
-          />
-          <TextInput
-            placeholder="Email"
+            placeholder="Digite seu email"
             returnKeyType="next"
             value={email}
             onChangeText={(text) => setEmail(text)}
@@ -63,24 +90,40 @@ export default function SignUp({ navigation }) {
           />
 
           <TextInput
-            placeholder="Password"
-            returnKeyType="done"
+            placeholder="Senha"
+            returnKeyType="next"
             value={password}
             onChangeText={(text) => setPassword(text)}
-            secureTextEntry
+            secureTextEntry={true}
             editable={!loading}
           />
+
+          <TextInput
+            placeholder="Confirme sua senha"
+            returnKeyType="done"
+            value={confirmPassword}
+            onChangeText={(text) => SetConfirmPassword(text)}
+            secureTextEntry={true}
+            editable={!loading}
+            onSubmitEditing={submit}
+          />
         </FieldsForm>
-        <Button mode="contained" onPress={submit} loading={loading}>
-          Sing Up
+        <Button
+          mode="contained"
+          onPress={submit}
+          loading={loading}
+          disabled={loading}
+        >
+          Assinar
         </Button>
+
+        <Footer>
+          <Label>Você já tem uma conta? </Label>
+          <Link onPress={() => navigation.navigate('SignIn')}>
+            <LabelLink>Entrar</LabelLink>
+          </Link>
+        </Footer>
       </Body>
-      <Footer>
-        <Label>Alredy have an account? </Label>
-        <Link onPress={() => navigation.navigate('SignIn')}>
-          <LabelLink>Login</LabelLink>
-        </Link>
-      </Footer>
     </Container>
   );
 }

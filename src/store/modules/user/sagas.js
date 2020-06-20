@@ -8,7 +8,9 @@ export function* create({ userData }) {
   try {
     const data = {
       uid: userData.user.uid || null,
+      fullname: `${userData.name} ${userData.lastName}` || null,
       name: userData.name || null,
+      lastName: userData.lastName || null,
       username: userData.username || null,
       email: userData.email || null,
       photo: userData.user.photoURL || null,
