@@ -24,13 +24,20 @@ Rember
 <br/>
 <br/>
 
+
+
+
+
+
 <div style={display: flex, flex-direction:row, justify-content: center, align-items: center}>
-  <img src="https://i.ibb.co/NTQWm58/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-12-25.png" width="140" />
-  <img src="https://i.ibb.co/PC8fssm/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-12-31.png" width="140" />
-  <img src="https://i.ibb.co/QkJLmwf/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-14-13-11.png" width="140" />
-  <img src="https://i.ibb.co/QM3hJbx/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-18-34.png" width="140" />
-  <img src="https://i.ibb.co/H4MSv6x/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-18-38.png" width="140" />
-  <img src="https://i.ibb.co/17DWSNK/Simulator-Screen-Shot-i-Phone-11-2020-05-31-at-13-18-43.png" width="140" />
+  <img src="https://i.ibb.co/8s7NV4K/Simulator-Screen-Shot-i-Phone-11-2020-06-20-at-15-06-04.png" width="110" />
+  <img src="https://i.ibb.co/MZqh3Mz/Simulator-Screen-Shot-i-Phone-11-2020-06-20-at-15-06-12.png" width="110" />
+  <img src="https://i.ibb.co/TvvtS8c/Simulator-Screen-Shot-i-Phone-11-2020-06-20-at-15-06-36.png" width="110" />
+  <img src="https://i.ibb.co/gdFqVHM/Simulator-Screen-Shot-i-Phone-11-2020-06-20-at-15-08-30.png" width="110" />
+  <img src="https://i.ibb.co/bJ3w9wR/Simulator-Screen-Shot-i-Phone-11-2020-06-20-at-15-08-36.png" width="110" />
+  <img src="https://i.ibb.co/t4tpZjt/Simulator-Screen-Shot-i-Phone-11-2020-06-20-at-15-08-40.png" width="110" />
+  <img src="https://i.ibb.co/BHD1153/Simulator-Screen-Shot-i-Phone-11-2020-06-20-at-15-09-29.png" width="110" />
+  <img src="https://i.ibb.co/qBmJFL7/Simulator-Screen-Shot-i-Phone-11-2020-06-20-at-15-18-24.png" width="110" />
 </div>
 
 <br/>
