@@ -2,12 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Home from '~/pages/Home';
 import SignIn from '~/pages/SignIn';
 import SignUp from '~/pages/SignUp';
 
-const Stack = createStackNavigator();
+import HomeTab from '~/navigation/HomeTab';
 
+const Stack = createStackNavigator();
 const Routes = () => {
   const signed = useSelector((state) => state.auth.signed);
   const signout = useSelector((state) => state.auth.signout);
@@ -15,7 +15,7 @@ const Routes = () => {
   return (
     <Stack.Navigator headerMode="none">
       {signed ? (
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Home" component={HomeTab} />
       ) : (
         <>
           <Stack.Screen
