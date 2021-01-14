@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* remberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* remberTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -17,6 +16,8 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* remberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* remberTests.m */; };
 		65A6796C243AA20F00555830 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65A6796B243AA20E00555830 /* GoogleService-Info.plist */; };
+		65A9DC3225AFD7B500AD4F0E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A9DC3125AFD7B500AD4F0E /* Launch Screen.storyboard */; };
+		65A9DC3325AFD7B500AD4F0E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A9DC3125AFD7B500AD4F0E /* Launch Screen.storyboard */; };
 		8085B3879D10545111A63A0F /* libPods-rember-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12BE6C05ECC4E02D1300FD22 /* libPods-rember-tvOS.a */; };
 		AB35C1FE3B14CE58C53EFE15 /* libPods-rember.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBECD691D20C00803B952B4E /* libPods-rember.a */; };
 		D6691E181A128FFBF8AE6F11 /* libPods-rember-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E2A602E4518DB5D2A5142E /* libPods-rember-tvOSTests.a */; };
@@ -50,7 +51,6 @@
 		13B07F961A680F5B00A75B9A /* rember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rember.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = rember/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = rember/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = rember/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = rember/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = rember/main.m; sourceTree = "<group>"; };
@@ -60,6 +60,7 @@
 		55AC44E3F682BFA08313FE14 /* Pods-rember-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rember-tvOS.release.xcconfig"; path = "Target Support Files/Pods-rember-tvOS/Pods-rember-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		622A997E2A058B0F41FFD7A5 /* Pods-rember-remberTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rember-remberTests.release.xcconfig"; path = "Target Support Files/Pods-rember-remberTests/Pods-rember-remberTests.release.xcconfig"; sourceTree = "<group>"; };
 		65A6796B243AA20E00555830 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		65A9DC3125AFD7B500AD4F0E /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A621F99BBF26801264A75B5A /* Pods-rember-remberTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rember-remberTests.debug.xcconfig"; path = "Target Support Files/Pods-rember-remberTests/Pods-rember-remberTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B5AF05833DFE9290E82B7FF7 /* Pods-rember.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rember.release.xcconfig"; path = "Target Support Files/Pods-rember/Pods-rember.release.xcconfig"; sourceTree = "<group>"; };
 		CBECD691D20C00803B952B4E /* libPods-rember.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rember.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,8 +133,8 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				65A9DC3125AFD7B500AD4F0E /* Launch Screen.storyboard */,
 			);
 			name = rember;
 			sourceTree = "<group>";
@@ -351,9 +352,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65A9DC3225AFD7B500AD4F0E /* Launch Screen.storyboard in Resources */,
 				65A6796C243AA20F00555830 /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65A9DC3325AFD7B500AD4F0E /* Launch Screen.storyboard in Resources */,
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,18 +626,6 @@
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13B07FB21A68108700A75B9A /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = rember;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
