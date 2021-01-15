@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import SignIn from '~/pages/SignIn';
 import SignUp from '~/pages/SignUp';
+import Dashboard from '~/pages/Dashboard';
 
 import TabScreens from '~/navigation/TabScreens';
 
@@ -15,7 +16,7 @@ const Routes = () => {
   return (
     <Stack.Navigator headerMode="none">
       {signed ? (
-        <Stack.Screen name="Home" component={TabScreens} />
+        <Stack.Screen name="Dashboard" component={Dashboard} />
       ) : (
         <>
           <Stack.Screen
