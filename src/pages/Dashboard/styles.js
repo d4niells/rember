@@ -96,7 +96,7 @@ export const FilterButton = styled.TouchableOpacity.attrs({
 `;
 
 export const CardResume = styled.View`
-  margin-top: 45px;
+  margin-top: 25px;
 
   display: flex;
   flex-direction: row;
