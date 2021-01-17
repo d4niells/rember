@@ -200,11 +200,17 @@ export const CenterContent = styled.View`
   display: flex;
 `;
 
-export const RightContent = styled.View`
+export const RightContent = styled.TouchableHighlight.attrs({
+  underlayColor: 'rgba(224, 224, 224, 0.17)',
+})`
   flex: 1;
   display: flex;
+  justify-content: center;
+  align-items: center;
 
-  background-color: blueviolet;
+  height: 100px;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
 `;
 
 export const TaskTitle = styled.Text`

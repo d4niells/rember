@@ -65,6 +65,10 @@ export default function Dashboard() {
     console.log('Open more settings');
   };
 
+  const handleOpenTaskDetails = (task) => {
+    console.log('task opened', task);
+  };
+
   return (
     <Container>
       <Header>
@@ -115,7 +119,7 @@ export default function Dashboard() {
                 <TaskTitle>{item.title}</TaskTitle>
                 <TaskDate>{item.date}</TaskDate>
               </CenterContent>
-              <RightContent>
+              <RightContent onPress={() => handleOpenTaskDetails(item)}>
                 <Text>More</Text>
               </RightContent>
             </CardTask>
