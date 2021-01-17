@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
 import Section from '~/components/Section';
+import ButtonIcon from '~/components/ButtonIcon';
 
 import {
   Container,
@@ -28,6 +29,8 @@ import {
   RightContent,
   TaskTitle,
   TaskDate,
+  FilterIcon,
+  MoreSettingIcon,
 } from './styles';
 
 export default function Dashboard() {
@@ -58,6 +61,10 @@ export default function Dashboard() {
     },
   ];
 
+  const handleMoreSettings = () => {
+    console.log('Open more settings');
+  };
+
   return (
     <Container>
       <Header>
@@ -69,13 +76,17 @@ export default function Dashboard() {
           <UserName>Hi, Daniel Oliveira</UserName>
         </Center>
         <Right>
-          <Text>more setting</Text>
+          <ButtonIcon onPress={handleMoreSettings}>
+            <MoreSettingIcon />
+          </ButtonIcon>
         </Right>
       </Header>
 
       <CardSearch>
         <InputSeach placeholder="Find task" />
-        <FilterButton />
+        <FilterButton>
+          <FilterIcon />
+        </FilterButton>
       </CardSearch>
 
       <CardResume>

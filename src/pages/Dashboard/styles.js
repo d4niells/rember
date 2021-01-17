@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components/native';
+import IoniconsIcon from 'react-native-vector-icons/Ionicons';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -31,6 +32,8 @@ export const Center = styled(Left)`
 
 export const Right = styled(Left)`
   flex: 1;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ImageProfile = styled.View`
@@ -62,9 +65,9 @@ export const CardSearch = styled.View`
   justify-content: space-between;
 `;
 
-export const InputSeach = styled.TextInput.attrs({
-  placeholderTextColor: ({ theme }) => theme.text.secondary,
-})`
+export const InputSeach = styled.TextInput.attrs(({ theme }) => ({
+  placeholderTextColor: theme.text.secondary,
+}))`
   padding-left: 10px;
 
   flex: 4;
@@ -80,6 +83,10 @@ export const FilterButton = styled.TouchableOpacity.attrs({
   activeOpacity: 0.9,
 })`
   margin-left: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   width: 60px;
   height: 50px;
@@ -213,3 +220,15 @@ export const TaskDate = styled.Text`
   font-weight: 400;
   color: ${({ theme }) => theme.text.secondary};
 `;
+
+export const FilterIcon = styled(IoniconsIcon).attrs({
+  name: 'ios-filter',
+  size: 28,
+  color: '#fff',
+})``;
+
+export const MoreSettingIcon = styled(IoniconsIcon).attrs(({ theme }) => ({
+  name: 'ios-ellipsis-vertical',
+  size: 28,
+  color: theme.text.main,
+}))``;
