@@ -13,6 +13,9 @@ const light = {
     secondary: '#8e92a2',
     contrast: '#fefdff',
   },
+  utils: {
+    boxShadow: '#edf0fc',
+  },
   background: '#f5f6fc',
   backgroundContainer: '#eef1fc',
 };

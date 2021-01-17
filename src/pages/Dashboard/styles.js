@@ -72,6 +72,7 @@ export const InputSeach = styled.TextInput.attrs({
   border-radius: 15px;
 
   color: ${({ theme }) => theme.text.secondary};
+  box-shadow: 0px 4px 10px ${({ theme }) => theme.utils.boxShadow};
   background-color: #fff;
 `;
 
@@ -83,7 +84,7 @@ export const FilterButton = styled.TouchableOpacity.attrs({
   width: 60px;
   height: 50px;
   border-radius: 15px;
-
+  box-shadow: 0px 4px 10px ${({ theme }) => theme.utils.boxShadow};
   background-color: ${({ theme }) => theme.primary.secondary};
 `;
 
@@ -94,7 +95,7 @@ export const CardResume = styled.View`
   flex-direction: row;
   justify-content: space-between;
 
-  height: 200px;
+  height: auto;
 `;
 
 export const CardActive = styled.TouchableOpacity.attrs({ activeOpacity: 0.9 })`
@@ -114,7 +115,7 @@ export const CardActive = styled.TouchableOpacity.attrs({ activeOpacity: 0.9 })`
           background-color: ${({ theme }) => theme.primary.secondary};
         `
       : css`
-          box-shadow: 0px 4px 10px #edf0fc;
+          box-shadow: 0px 4px 10px ${({ theme }) => theme.utils.boxShadow};
           background-color: #ffffff;
         `};
 `;
@@ -127,7 +128,7 @@ export const CardOngoing = styled(CardActive)`
           background-color: ${({ theme }) => theme.primary.secondary};
         `
       : css`
-          box-shadow: 0px 4px 10px #edf0fc;
+          box-shadow: 0px 4px 10px ${({ theme }) => theme.utils.boxShadow};
           background-color: #ffffff;
         `};
 `;
@@ -142,7 +143,7 @@ export const CardDone = styled(CardActive)`
           background-color: ${({ theme }) => theme.primary.secondary};
         `
       : css`
-          box-shadow: 0px 4px 10px #edf0fc;
+          box-shadow: 0px 4px 10px ${({ theme }) => theme.utils.boxShadow};
           background-color: #ffffff;
         `};
 `;
@@ -161,4 +162,54 @@ export const CardResumeSubtitle = styled.Text`
   font-weight: 500;
   color: ${({ active, theme }) =>
     active ? theme.text.contrast : theme.text.secondary};
+`;
+
+export const CardTask = styled.View`
+  margin-top: 15px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+
+  height: 100px;
+  border-radius: 20px;
+
+  background-color: #fff;
+`;
+
+export const LeftContent = styled.View`
+  width: 8px;
+  height: 75%;
+  border-radius: 20px;
+
+  background-color: ${({ color }) => color};
+`;
+
+export const CenterContent = styled.View`
+  margin-left: 25px;
+
+  flex: 5;
+  display: flex;
+`;
+
+export const RightContent = styled.View`
+  flex: 1;
+  display: flex;
+
+  background-color: blueviolet;
+`;
+
+export const TaskTitle = styled.Text`
+  font-size: 17px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.text.main};
+`;
+
+export const TaskDate = styled.Text`
+  margin-top: 10px;
+
+  font-size: 15px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.text.secondary};
 `;

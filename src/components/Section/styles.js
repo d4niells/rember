@@ -1,12 +1,12 @@
 import styled from 'styled-components/native';
-import { colors } from '~/styles/index';
 
-export const Container = styled.View``;
+export const Container = styled.View`
+  margin-top: 45px;
+`;
 
 export const Title = styled.Text`
-  margin-top: 30px;
+  margin-bottom: 10px;
   font-size: 22px;
-  font-weight: 700;
-  padding-left: 20px;
-  color: ${colors.blackPrimary};
+  font-weight: 500;
+  color: ${({ theme }) => theme.text.main};
 `;
