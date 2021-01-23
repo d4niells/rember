@@ -1,23 +1,29 @@
-const dark = {};
+import { DefaultTheme, DarkTheme } from 'react-native-paper';
 
-const light = {
-  primary: {
-    main: '#270afe',
-    secondary: '#6d38ff',
+// #270afe
+// #6d38ff
+// #ffb638
+// #404448
+// #8e92a2
+// #fefdff
+// #edf0fc
+// #f5f6fc
+// #eef1fc
+
+const dark = {
+  dark: true,
+  ...DarkTheme,
+  colors: {
+    ...DarkTheme.colors,
   },
-  secondary: {
-    main: '#ffb638',
-  },
-  text: {
-    main: '#404448',
-    secondary: '#8e92a2',
-    contrast: '#fefdff',
-  },
-  utils: {
-    boxShadow: '#edf0fc',
-  },
-  background: '#f5f6fc',
-  backgroundContainer: '#eef1fc',
 };
 
-export { light };
+const light = {
+  dark: false,
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+  },
+};
+
+export { light, dark };
