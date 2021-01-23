@@ -6,12 +6,11 @@ import SignIn from '~/pages/SignIn';
 import SignUp from '~/pages/SignUp';
 import Dashboard from '~/pages/Dashboard';
 
-import TabScreens from '~/navigation/TabScreens';
-
-const Stack = createStackNavigator();
 const Routes = () => {
   const signed = useSelector((state) => state.auth.signed);
   const signout = useSelector((state) => state.auth.signout);
+
+  const Stack = createStackNavigator();
 
   return (
     <Stack.Navigator headerMode="none">

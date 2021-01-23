@@ -4,9 +4,7 @@ import createStore from './createStore';
 import rootReducer from './modules/rootReducers';
 import rootSaga from './modules/rootSagas';
 
-const sagaMonitor = __DEV__ ? console.tron.createSagaMonitor() : null;
-
-const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
+const sagaMiddleware = createSagaMiddleware({});
 
 const middlewares = [sagaMiddleware];
 

@@ -1,5 +1,4 @@
 import 'react-native-gesture-handler';
-import '~/config/ReactotronConfig';
 
 import { AppRegistry } from 'react-native';
 import App from './src';
